@@ -1,65 +1,108 @@
-import Image from "next/image";
+import type { Metadata } from 'next'
+import HeroSection from '@/components/ui/HeroSection'
+import EventCard from '@/components/ui/EventCard'
+import BoardMember from '@/components/ui/BoardMember'
+import DepartmentCard from '@/components/ui/DepartmentCard'
+import SponsorGrid from '@/components/ui/SponsorGrid'
+import { mainBoard, advisoryBoard } from '@/data/board'
+import { events } from '@/data/events'
+import { sponsors } from '@/data/sponsors'
+import { departments } from '@/data/departments'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'SuS Oestereiden e.V. 1922 — Der Verein für die Region',
+}
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <HeroSection
+        title="SuS Oestereiden e.V."
+        subtitle="Der Verein für die Region seit 1922"
+        description="Über 860 Mitglieder, vier Abteilungen, eine Gemeinschaft — in Rüthen-Oestereiden."
+      />
+
+      {/* Aktuelles */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-zinc-800 mb-8">Aktuelles & Termine</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {events.map((event, i) => (
+              <EventCard key={i} event={event} />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Über den Verein */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-2xl font-bold text-zinc-800 mb-4">Über unseren Verein</h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Der Spiel- und Sportverein Oestereiden e.V. wurde 1922 gegründet und ist heute mit
+                über 860 Mitgliedern der größte Verein im Stadtgebiet Rüthen.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Mit vier aktiven Abteilungen — Fußball, Volleyball, Tennis und Breitensport —
+                bieten wir Sport und Gemeinschaft für jedes Alter.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: 'Gegründet', value: '1922' },
+                { label: 'Mitglieder', value: '860+' },
+                { label: 'Abteilungen', value: '4' },
+                { label: 'Standort', value: 'Rüthen' },
+              ].map(stat => (
+                <div key={stat.label} className="bg-sus-green-pale rounded-lg p-6 text-center">
+                  <div className="text-3xl font-bold text-sus-green">{stat.value}</div>
+                  <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* Abteilungen */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-zinc-800 mb-8">Unsere Abteilungen</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {departments.map(dept => (
+              <DepartmentCard key={dept.id} department={dept} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vorstand */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-zinc-800 mb-8">Vereinsvorstand</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 mb-12">
+            {mainBoard.map(member => (
+              <BoardMember key={member.name} member={member} />
+            ))}
+          </div>
+          <h3 className="text-lg font-semibold text-zinc-700 mb-6">Beisitzende</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+            {advisoryBoard.map(member => (
+              <BoardMember key={member.name} member={member} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sponsoren */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-zinc-800 mb-8">Unsere Sponsoren</h2>
+          <SponsorGrid sponsors={sponsors} />
+        </div>
+      </section>
+    </>
+  )
 }
