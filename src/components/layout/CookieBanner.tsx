@@ -37,35 +37,35 @@ export default function CookieBanner() {
   if (!visible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg p-4 md:p-6">
-      <div className="max-w-7xl mx-auto">
-        <p className="text-sm text-gray-700 mb-4">
-          Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.
-          Funktionale Cookies sind für den Betrieb der Website notwendig.
+    <div className="fixed bottom-6 left-6 z-50 w-full max-w-md">
+      <div className="rounded-2xl border border-sus-muted bg-[rgba(10,14,26,0.92)] backdrop-blur-[16px] p-5 shadow-2xl">
+        <p className="text-sm text-sus-light/70 leading-relaxed mb-4">
+          Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung zu bieten.
+          Funktionale Cookies sind für den Betrieb notwendig.
         </p>
 
         {expanded && (
-          <div className="mb-4 space-y-2 bg-gray-50 rounded-md p-3">
-            <label className="flex items-center gap-2 text-sm">
-              <input type="checkbox" checked disabled readOnly className="accent-sus-green" />
+          <div className="mb-4 space-y-2 bg-sus-muted/20 rounded-lg p-3">
+            <label className="flex items-center gap-2 text-sm text-sus-light/60">
+              <input type="checkbox" checked disabled readOnly className="accent-sus-royal" />
               <span className="font-medium">Funktional</span>
-              <span className="text-gray-500 text-xs">(immer aktiv)</span>
+              <span className="text-xs opacity-60">(immer aktiv)</span>
             </label>
-            <label className="flex items-center gap-2 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-sm text-sus-light cursor-pointer">
               <input
                 type="checkbox"
                 checked={consent.statistics}
                 onChange={e => setConsent(c => ({ ...c, statistics: e.target.checked }))}
-                className="accent-sus-green"
+                className="accent-sus-royal"
               />
               <span className="font-medium">Statistiken</span>
             </label>
-            <label className="flex items-center gap-2 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-sm text-sus-light cursor-pointer">
               <input
                 type="checkbox"
                 checked={consent.marketing}
                 onChange={e => setConsent(c => ({ ...c, marketing: e.target.checked }))}
-                className="accent-sus-green"
+                className="accent-sus-royal"
               />
               <span className="font-medium">Marketing</span>
             </label>
@@ -75,27 +75,27 @@ export default function CookieBanner() {
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => save({ functional: true, statistics: true, marketing: true })}
-            className="px-4 py-2 bg-sus-green text-white text-sm font-medium rounded-md hover:bg-sus-green-light transition-colors"
+            className="px-4 py-2 bg-sus-royal text-white text-sm font-semibold rounded-lg hover:bg-sus-royal/90 transition-colors"
           >
             Alle akzeptieren
           </button>
           <button
             onClick={() => save({ functional: true, statistics: false, marketing: false })}
-            className="px-4 py-2 border border-gray-300 text-gray-700 text-sm font-medium rounded-md hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-sus-muted text-sus-light/70 text-sm font-medium rounded-lg hover:text-sus-light hover:border-sus-light/40 transition-colors"
           >
             Nur notwendige
           </button>
           {expanded ? (
             <button
               onClick={() => save(consent)}
-              className="px-4 py-2 border border-sus-green text-sus-green text-sm font-medium rounded-md hover:bg-sus-green-pale transition-colors"
+              className="px-4 py-2 border border-sus-royal text-sus-royal text-sm font-medium rounded-lg hover:bg-sus-royal/10 transition-colors"
             >
               Einstellungen speichern
             </button>
           ) : (
             <button
               onClick={() => setExpanded(true)}
-              className="px-4 py-2 border border-gray-300 text-gray-700 text-sm font-medium rounded-md hover:bg-gray-50 transition-colors"
+              className="px-4 py-2 border border-sus-muted text-sus-light/70 text-sm font-medium rounded-lg hover:text-sus-light hover:border-sus-light/40 transition-colors"
             >
               Einstellungen
             </button>
