@@ -41,7 +41,7 @@ export default function HallSchedule({ slots }: HallScheduleProps) {
           className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors ${
             activeDay === null
               ? 'bg-sus-royal text-white'
-              : 'border border-sus-muted/30 text-sus-ink/50 hover:border-sus-ink/30 hover:text-sus-ink'
+              : 'border border-sus-muted text-sus-ink/50 hover:border-sus-ink/30 hover:text-sus-ink'
           }`}
         >
           Alle
@@ -54,7 +54,7 @@ export default function HallSchedule({ slots }: HallScheduleProps) {
             className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors ${
               activeDay === day
                 ? 'bg-sus-royal text-white'
-                : 'border border-sus-muted/30 text-sus-ink/50 hover:border-sus-ink/30 hover:text-sus-ink'
+                : 'border border-sus-muted text-sus-ink/50 hover:border-sus-ink/30 hover:text-sus-ink'
             }`}
           >
             {DAY_SHORT[day]}
@@ -82,7 +82,7 @@ export default function HallSchedule({ slots }: HallScheduleProps) {
                       onMouseLeave={() => setTooltip(null)}
                     >
                       <div className="font-bold truncate text-sus-ink">{slot.group}</div>
-                      <div className="text-sus-ink/50 mt-0.5 font-medium">{`${slot.startTime}–${slot.endTime}`}</div>
+                      <div className="text-sus-ink/50 mt-0.5 font-medium uppercase tracking-[0.05em] text-[11px]">{`${slot.startTime}–${slot.endTime}`}</div>
 
                       {tooltip === slot && (
                         <div className="absolute z-10 bottom-full left-0 mb-1.5 bg-sus-navy text-sus-light text-xs rounded-xl px-3 py-2.5 w-48 shadow-xl pointer-events-none border border-sus-muted">
