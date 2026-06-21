@@ -1,11 +1,12 @@
 import Link from 'next/link'
-import type { DepartmentInfo } from '@/lib/types'
+import type { DepartmentInfo, Department } from '@/lib/types'
 
-const DEPT_ICONS: Record<string, string> = {
+const DEPT_ICONS: Record<Department, string> = {
   fussball: '⚽',
   volleyball: '🏐',
   tennis: '🎾',
   breitensport: '🏃',
+  allgemein: '🏅',
 }
 
 interface DepartmentCardProps {

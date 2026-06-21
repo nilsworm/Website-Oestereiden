@@ -1,4 +1,4 @@
-import type { Event } from '@/lib/types'
+import type { Event, Department } from '@/lib/types'
 
 const DEPT_LABELS: Record<string, string> = {
   fussball: 'Fußball',
@@ -8,7 +8,7 @@ const DEPT_LABELS: Record<string, string> = {
   allgemein: 'Allgemein',
 }
 
-const DEPT_BORDER: Record<string, string> = {
+const DEPT_BORDER: Record<Department, string> = {
   fussball:     'border-l-[#1a35c8]',
   volleyball:   'border-l-[#0d7a6e]',
   tennis:       'border-l-[#c47d0e]',
@@ -16,7 +16,7 @@ const DEPT_BORDER: Record<string, string> = {
   allgemein:    'border-l-sus-muted',
 }
 
-const DEPT_TAG: Record<string, string> = {
+const DEPT_TAG: Record<Department, string> = {
   fussball:     'text-[#1a35c8] bg-[#1a35c8]/10',
   volleyball:   'text-[#0d7a6e] bg-[#0d7a6e]/10',
   tennis:       'text-[#c47d0e] bg-[#c47d0e]/10',
