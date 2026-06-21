@@ -15,7 +15,7 @@ interface DepartmentCardProps {
 export default function DepartmentCard({ department }: DepartmentCardProps) {
   return (
     <Link href={`/${department.id}`} className="group block h-full">
-      <div className="bg-white rounded-xl shadow-sm p-6 border border-sus-ice h-full hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(26,53,200,0.12)] transition-all duration-200">
+      <div className="bg-white rounded-xl shadow-sm p-6 h-full hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(26,53,200,0.15)] transition-all duration-200">
         <div className="w-16 h-16 rounded-2xl bg-sus-ice flex items-center justify-center text-3xl mb-4">
           {DEPT_ICONS[department.id]}
         </div>

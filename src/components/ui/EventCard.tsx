@@ -40,7 +40,7 @@ export default function EventCard({ event }: EventCardProps) {
   return (
     <div className={`bg-white rounded-xl shadow-sm border-l-4 ${DEPT_BORDER[event.department]} p-6 hover:-translate-y-1 hover:shadow-md transition-all duration-200`}>
       <div className="flex items-start justify-between gap-3 mb-3">
-        <time className="text-xs font-semibold text-sus-ink/40 uppercase tracking-[0.08em]">
+        <time className="text-xs font-semibold text-sus-ink/40 uppercase tracking-[0.1em]">
           {formatDate(event.date)}
         </time>
         <span className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${DEPT_TAG[event.department]}`}>
