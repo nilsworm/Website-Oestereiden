@@ -13,19 +13,38 @@ export const metadata: Metadata = {
   title: 'SuS Oestereiden e.V. 1922 — Der Verein für die Region',
 }
 
+const statsBar = (
+  <div className="flex flex-wrap items-center gap-6 text-sus-light/70 text-sm font-medium">
+    {[
+      { value: '1922', label: 'Gegründet' },
+      { value: '860+', label: 'Mitglieder' },
+      { value: '4', label: 'Abteilungen' },
+      { value: 'Rüthen', label: 'Standort' },
+    ].map(stat => (
+      <div key={stat.label} className="flex items-baseline gap-1.5">
+        <span className="text-sus-light font-bold text-lg">{stat.value}</span>
+        <span>{stat.label}</span>
+      </div>
+    ))}
+  </div>
+)
+
 export default function HomePage() {
   return (
     <>
       <HeroSection
         title="SuS Oestereiden e.V."
-        subtitle="Der Verein für die Region seit 1922"
-        description="Über 860 Mitglieder, vier Abteilungen, eine Gemeinschaft — in Rüthen-Oestereiden."
-      />
+        subtitle="Der Verein für die Region"
+        description="Über 860 Mitglieder, vier Abteilungen, eine Gemeinschaft."
+      >
+        {statsBar}
+      </HeroSection>
 
-      {/* Aktuelles */}
-      <section className="py-16 px-4 bg-gray-50">
+      {/* Aktuelles — HELL */}
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-zinc-800 mb-8">Aktuelles & Termine</h2>
+          <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Aktuell</p>
+          <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-sus-ink mb-10">Termine & Neuigkeiten</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {events.map((event, i) => (
               <EventCard key={i} event={event} />
@@ -34,19 +53,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Über den Verein */}
-      <section className="py-16 px-4">
+      {/* Über den Verein — DUNKEL */}
+      <section className="py-24 px-4 bg-sus-navy text-sus-light">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-2xl font-bold text-zinc-800 mb-4">Über unseren Verein</h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
+              <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Der Verein</p>
+              <h2 className="text-[clamp(28px,4vw,48px)] font-bold mb-6">Seit über 100 Jahren<br />für die Region</h2>
+              <p className="text-sus-light/60 leading-relaxed mb-4 text-lg">
                 Der Spiel- und Sportverein Oestereiden e.V. wurde 1922 gegründet und ist heute mit
                 über 860 Mitgliedern der größte Verein im Stadtgebiet Rüthen.
               </p>
-              <p className="text-gray-600 leading-relaxed">
-                Mit vier aktiven Abteilungen — Fußball, Volleyball, Tennis und Breitensport —
-                bieten wir Sport und Gemeinschaft für jedes Alter.
+              <p className="text-sus-light/60 leading-relaxed">
+                Mit vier aktiven Abteilungen bieten wir Sport und Gemeinschaft für jedes Alter.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -56,9 +75,9 @@ export default function HomePage() {
                 { label: 'Abteilungen', value: '4' },
                 { label: 'Standort', value: 'Rüthen' },
               ].map(stat => (
-                <div key={stat.label} className="bg-sus-green-pale rounded-lg p-6 text-center">
-                  <div className="text-3xl font-bold text-sus-green">{stat.value}</div>
-                  <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
+                <div key={stat.label} className="bg-sus-club/50 rounded-2xl p-8 text-center border border-sus-muted/40">
+                  <div className="text-4xl font-black text-sus-royal mb-1">{stat.value}</div>
+                  <div className="text-sm text-sus-light/50 font-medium">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -66,10 +85,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Abteilungen */}
-      <section className="py-16 px-4 bg-gray-50">
+      {/* Abteilungen — HELL */}
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-zinc-800 mb-8">Unsere Abteilungen</h2>
+          <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Sport</p>
+          <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-sus-ink mb-10">Unsere Abteilungen</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {departments.map(dept => (
               <DepartmentCard key={dept.id} department={dept} />
@@ -78,16 +98,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Vorstand */}
-      <section className="py-16 px-4">
+      {/* Vorstand — MITTEL */}
+      <section className="py-24 px-4 bg-sus-club">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-zinc-800 mb-8">Vereinsvorstand</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 mb-12">
+          <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Team</p>
+          <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-sus-light mb-10">Vereinsvorstand</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 mb-14">
             {mainBoard.map(member => (
               <BoardMember key={member.name} member={member} />
             ))}
           </div>
-          <h3 className="text-lg font-semibold text-zinc-700 mb-6">Beisitzende</h3>
+          <p className="text-xs font-semibold text-sus-light/40 uppercase tracking-[0.1em] mb-6">Beisitzende</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
             {advisoryBoard.map(member => (
               <BoardMember key={member.name} member={member} />
@@ -96,10 +117,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Sponsoren */}
-      <section className="py-16 px-4 bg-gray-50">
+      {/* Sponsoren — DUNKEL */}
+      <section className="py-24 px-4 bg-sus-navy">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-zinc-800 mb-8">Unsere Sponsoren</h2>
+          <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Partner</p>
+          <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-sus-light mb-10">Unsere Sponsoren</h2>
           <SponsorGrid sponsors={sponsors} />
         </div>
       </section>
