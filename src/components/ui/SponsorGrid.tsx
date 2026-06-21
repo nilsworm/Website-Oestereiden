@@ -10,9 +10,9 @@ export default function SponsorGrid({ sponsors }: SponsorGridProps) {
       {sponsors.map((sponsor) => (
         <div
           key={sponsor.name}
-          className="flex items-center justify-center bg-white rounded-lg border border-gray-200 p-4 h-20 hover:shadow-md transition-shadow"
+          className="group flex items-center justify-center bg-white/8 rounded-xl p-5 h-20 hover:bg-white/15 transition-all duration-200"
         >
-          <span className="text-sm font-medium text-gray-600 text-center leading-tight">
+          <span className="text-sus-light/50 group-hover:text-sus-light text-sm font-semibold text-center leading-tight transition-colors duration-200">
             {sponsor.name}
           </span>
         </div>
