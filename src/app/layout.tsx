@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import CookieBanner from '@/components/layout/CookieBanner'
 import './globals.css'
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
-const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   title: {
@@ -19,10 +18,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={`${geist.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="font-sans min-h-screen flex flex-col">
+    <html lang="de" className={`${inter.variable} h-full antialiased`}>
+      <body className="font-sans min-h-screen flex flex-col bg-white">
         <Navbar />
-        <main className="flex-1">
+        <main className="flex-1 pt-16">
           {children}
         </main>
         <Footer />

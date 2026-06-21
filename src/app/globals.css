@@ -4,18 +4,27 @@
 
 @layer base {
   body {
-    @apply text-zinc-800 bg-white;
+    @apply text-sus-ink bg-white antialiased;
+    font-feature-settings: 'kern', 'liga', 'calt';
   }
 
-  h1 {
-    @apply text-3xl font-bold tracking-tight;
+  h1 { @apply font-black tracking-tight; }
+  h2 { @apply font-bold tracking-tight; }
+  h3 { @apply font-bold; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
   }
 
-  h2 {
-    @apply text-2xl font-bold tracking-tight;
-  }
-
-  h3 {
-    @apply text-xl font-semibold;
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
+    padding-bottom: 8%;
   }
 }

@@ -10,13 +10,24 @@ const config: Config = {
     extend: {
       colors: {
         sus: {
-          green: '#1a5c2a',
-          'green-light': '#2d8a40',
-          'green-pale': '#e8f5eb',
+          navy:  '#0a0e1a',
+          club:  '#0f1f6e',
+          royal: '#1a35c8',
+          ice:   '#e8ecff',
+          ink:   '#12172e',
+          light: '#f0f2ff',
+          muted: '#2a3670',
+        },
+        dept: {
+          fussball:     '#1a35c8',
+          volleyball:   '#0d7a6e',
+          tennis:       '#c47d0e',
+          breitensport: '#6b4faa',
+          allgemein:    '#2a3670',
         },
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
     },
   },
