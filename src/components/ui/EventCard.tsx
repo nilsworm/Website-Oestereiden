@@ -8,12 +8,20 @@ const DEPT_LABELS: Record<string, string> = {
   allgemein: 'Allgemein',
 }
 
-const DEPT_COLORS: Record<string, string> = {
-  fussball: 'bg-green-100 text-green-800',
-  volleyball: 'bg-blue-100 text-blue-800',
-  tennis: 'bg-yellow-100 text-yellow-800',
-  breitensport: 'bg-purple-100 text-purple-800',
-  allgemein: 'bg-gray-100 text-gray-700',
+const DEPT_BORDER: Record<string, string> = {
+  fussball:     'border-l-[#1a35c8]',
+  volleyball:   'border-l-[#0d7a6e]',
+  tennis:       'border-l-[#c47d0e]',
+  breitensport: 'border-l-[#6b4faa]',
+  allgemein:    'border-l-sus-muted',
+}
+
+const DEPT_TAG: Record<string, string> = {
+  fussball:     'text-[#1a35c8] bg-[#1a35c8]/10',
+  volleyball:   'text-[#0d7a6e] bg-[#0d7a6e]/10',
+  tennis:       'text-[#c47d0e] bg-[#c47d0e]/10',
+  breitensport: 'text-[#6b4faa] bg-[#6b4faa]/10',
+  allgemein:    'text-sus-muted bg-sus-muted/10',
 }
 
 function formatDate(iso: string): string {
@@ -30,15 +38,17 @@ interface EventCardProps {
 
 export default function EventCard({ event }: EventCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow">
+    <div className={`bg-white rounded-xl shadow-sm border-l-4 ${DEPT_BORDER[event.department]} p-6 hover:-translate-y-1 hover:shadow-md transition-all duration-200`}>
       <div className="flex items-start justify-between gap-3 mb-3">
-        <time className="text-sm font-medium text-gray-500">{formatDate(event.date)}</time>
-        <span className={`text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap ${DEPT_COLORS[event.department]}`}>
+        <time className="text-xs font-semibold text-sus-ink/40 uppercase tracking-[0.08em]">
+          {formatDate(event.date)}
+        </time>
+        <span className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${DEPT_TAG[event.department]}`}>
           {DEPT_LABELS[event.department]}
         </span>
       </div>
-      <h3 className="font-bold text-lg text-zinc-800 mb-2">{event.title}</h3>
-      <p className="text-gray-600 text-sm leading-relaxed">{event.description}</p>
+      <h3 className="font-bold text-lg text-sus-ink mb-2 leading-snug">{event.title}</h3>
+      <p className="text-sus-ink/60 text-sm leading-relaxed">{event.description}</p>
     </div>
   )
 }

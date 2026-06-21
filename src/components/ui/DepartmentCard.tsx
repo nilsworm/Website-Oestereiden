@@ -14,14 +14,16 @@ interface DepartmentCardProps {
 
 export default function DepartmentCard({ department }: DepartmentCardProps) {
   return (
-    <Link href={`/${department.id}`} className="group block">
-      <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 hover:shadow-lg hover:border-sus-green transition-all h-full">
-        <div className="text-4xl mb-3">{DEPT_ICONS[department.id]}</div>
-        <h3 className="font-bold text-lg text-zinc-800 mb-2 group-hover:text-sus-green transition-colors">
+    <Link href={`/${department.id}`} className="group block h-full">
+      <div className="bg-white rounded-xl shadow-sm p-6 border border-sus-ice h-full hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(26,53,200,0.12)] transition-all duration-200">
+        <div className="w-16 h-16 rounded-2xl bg-sus-ice flex items-center justify-center text-3xl mb-4">
+          {DEPT_ICONS[department.id]}
+        </div>
+        <h3 className="font-bold text-lg text-sus-ink mb-2 group-hover:text-sus-royal transition-colors">
           {department.label}
         </h3>
-        <p className="text-gray-600 text-sm leading-relaxed mb-3">{department.description}</p>
-        <p className="text-xs text-gray-400">Leitung: {department.head}</p>
+        <p className="text-sus-ink/60 text-sm leading-relaxed mb-4">{department.description}</p>
+        <p className="text-xs text-sus-ink/30 font-medium">Leitung: {department.head}</p>
       </div>
     </Link>
   )
