@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { UserPlus, LayoutGrid, Mail } from 'lucide-react'
 import FadeIn from '@/components/motion/FadeIn'
 
 const abteilungen = [
@@ -22,7 +23,9 @@ export default function VereinsinfoSection() {
 
           <FadeIn delay={0}>
             <div className="bg-white rounded-2xl p-8 h-full shadow-sm flex flex-col">
-              <span className="text-3xl mb-4 block">🤝</span>
+              <div className="w-12 h-12 rounded-xl bg-sus-royal/10 text-sus-royal flex items-center justify-center mb-5">
+                <UserPlus size={24} strokeWidth={1.75} />
+              </div>
               <h3 className="font-bold text-sus-ink text-xl mb-3">Mitglied werden</h3>
               <p className="text-sus-ink/60 text-sm leading-relaxed mb-6 flex-1">
                 Werde Teil unserer Gemeinschaft. Füll das Aufnahmeformular aus und der Vorstand meldet sich bei dir.
@@ -38,7 +41,9 @@ export default function VereinsinfoSection() {
 
           <FadeIn delay={0.1}>
             <div className="bg-white rounded-2xl p-8 h-full shadow-sm flex flex-col">
-              <span className="text-3xl mb-4 block">🏅</span>
+              <div className="w-12 h-12 rounded-xl bg-sus-royal/10 text-sus-royal flex items-center justify-center mb-5">
+                <LayoutGrid size={24} strokeWidth={1.75} />
+              </div>
               <h3 className="font-bold text-sus-ink text-xl mb-3">Unsere Abteilungen</h3>
               <p className="text-sus-ink/60 text-sm leading-relaxed mb-6 flex-1">
                 Fußball, Volleyball, Tennis und Breitensport — für jedes Alter und jedes Niveau etwas dabei.
@@ -59,7 +64,9 @@ export default function VereinsinfoSection() {
 
           <FadeIn delay={0.2}>
             <div className="bg-white rounded-2xl p-8 h-full shadow-sm flex flex-col">
-              <span className="text-3xl mb-4 block">📬</span>
+              <div className="w-12 h-12 rounded-xl bg-sus-royal/10 text-sus-royal flex items-center justify-center mb-5">
+                <Mail size={24} strokeWidth={1.75} />
+              </div>
               <h3 className="font-bold text-sus-ink text-xl mb-3">Kontakt</h3>
               <p className="text-sus-ink/60 text-sm leading-relaxed mb-6 flex-1">
                 Fragen? Wir sind für euch da.

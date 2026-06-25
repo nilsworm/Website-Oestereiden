@@ -20,7 +20,7 @@ const kursangebot = [
 export default function BreitensportPage() {
   return (
     <>
-      <HeroSection title="Breitensport" subtitle="SuS Oestereiden" icon="🏃" />
+      <HeroSection title="Breitensport" subtitle="SuS Oestereiden" />
       <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Team</p>

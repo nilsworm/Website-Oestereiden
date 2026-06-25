@@ -17,7 +17,7 @@ export default function MitgliedschaftPage() {
         title="Werde Teil von 860+"
         subtitle="Mitglied bei SuS Oestereiden"
         description="Der größte Sportverein im Stadtgebiet Rüthen — seit 1922."
-        icon="🤝"
+       
       />
 
       <section className="py-24 px-4 bg-white">
