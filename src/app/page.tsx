@@ -6,6 +6,7 @@ import DepartmentCard from '@/components/ui/DepartmentCard'
 import SponsorGrid from '@/components/ui/SponsorGrid'
 import FadeIn from '@/components/motion/FadeIn'
 import AnimatedGrid from '@/components/motion/AnimatedGrid'
+import AnimatedStats from '@/components/motion/AnimatedStats'
 import QuoteSection from '@/components/sections/QuoteSection'
 import StandortSection from '@/components/sections/StandortSection'
 import VereinsinfoSection from '@/components/sections/VereinsinfoSection'
@@ -66,6 +67,26 @@ export default function HomePage() {
               <EventCard key={i} event={event} />
             ))}
           </AnimatedGrid>
+        </div>
+      </section>
+
+      {/* Über den Verein — DUNKEL */}
+      <section className="min-h-[70vh] py-32 px-4 bg-sus-navy text-sus-light flex flex-col justify-center">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <FadeIn>
+              <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Der Verein</p>
+              <h2 className="text-[clamp(28px,4vw,48px)] font-bold mb-6">Seit über 100 Jahren<br />für die Region</h2>
+              <p className="text-sus-light/60 leading-relaxed mb-4 text-lg">
+                Der Spiel- und Sportverein Oestereiden e.V. wurde 1922 gegründet und ist heute mit
+                über 860 Mitgliedern der größte Verein im Stadtgebiet Rüthen.
+              </p>
+              <p className="text-sus-light/60 leading-relaxed">
+                Mit vier aktiven Abteilungen bieten wir Sport und Gemeinschaft für jedes Alter.
+              </p>
+            </FadeIn>
+            <AnimatedStats />
+          </div>
         </div>
       </section>
 
