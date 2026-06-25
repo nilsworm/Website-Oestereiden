@@ -1,0 +1,98 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "SuS Oestereiden 1922" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Fußball" [ref=e7] [cursor=pointer]:
+          - /url: /fussball
+          - text: Fußball
+        - link "Volleyball" [ref=e8] [cursor=pointer]:
+          - /url: /volleyball
+          - text: Volleyball
+        - link "Tennis" [ref=e9] [cursor=pointer]:
+          - /url: /tennis
+          - text: Tennis
+        - link "Breitensport" [ref=e10] [cursor=pointer]:
+          - /url: /breitensport
+          - text: Breitensport
+        - link "Hallenbelegung" [ref=e11] [cursor=pointer]:
+          - /url: /hallenbelegung
+          - text: Hallenbelegung
+        - link "Mitglied werden" [ref=e12] [cursor=pointer]:
+          - /url: /mitgliedschaft
+  - main [ref=e13]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - paragraph [ref=e18]: Seit 1922
+        - heading "Tennis" [level=1] [ref=e19]
+        - paragraph [ref=e20]: SuS Oestereiden
+      - generic [ref=e22]: 🎾
+    - generic [ref=e24]:
+      - paragraph [ref=e25]: Team
+      - heading "Abteilungsvorstand" [level=2] [ref=e26]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e30]: G
+          - paragraph [ref=e31]: Gerrit Keil
+          - paragraph [ref=e32]: Abteilungsleiter
+        - generic [ref=e33]:
+          - generic [ref=e35]: A
+          - paragraph [ref=e36]: Ann-Catrin Dahlhoff
+          - paragraph [ref=e37]: Geschäftsführerin / Schatzmeisterin
+        - generic [ref=e38]:
+          - generic [ref=e40]: J
+          - paragraph [ref=e41]: Jan Wirsdörfer
+          - paragraph [ref=e42]: Platzwart
+        - generic [ref=e43]:
+          - generic [ref=e45]: A
+          - paragraph [ref=e46]: Anna Schiller
+          - paragraph [ref=e47]: Jugendwart
+        - generic [ref=e48]:
+          - generic [ref=e50]: C
+          - paragraph [ref=e51]: Carsten Luig
+          - paragraph [ref=e52]: Sportwart
+  - contentinfo [ref=e53]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - paragraph [ref=e57]: SuS Oestereiden
+          - paragraph [ref=e58]: e.V. 1922
+          - paragraph [ref=e59]:
+            - text: Im Kirchfeld 1
+            - text: 59602 Rüthen
+          - paragraph [ref=e60]:
+            - link "+49 2954 924590" [ref=e61] [cursor=pointer]:
+              - /url: tel:+4929549245900
+            - link "info@sus-oestereiden.de" [ref=e62] [cursor=pointer]:
+              - /url: mailto:info@sus-oestereiden.de
+        - generic [ref=e63]:
+          - paragraph [ref=e64]: Abteilungen
+          - list [ref=e65]:
+            - listitem [ref=e66]:
+              - link "Fußball" [ref=e67] [cursor=pointer]:
+                - /url: /fussball
+            - listitem [ref=e68]:
+              - link "Volleyball" [ref=e69] [cursor=pointer]:
+                - /url: /volleyball
+            - listitem [ref=e70]:
+              - link "Tennis" [ref=e71] [cursor=pointer]:
+                - /url: /tennis
+            - listitem [ref=e72]:
+              - link "Breitensport" [ref=e73] [cursor=pointer]:
+                - /url: /breitensport
+        - generic [ref=e74]:
+          - paragraph [ref=e75]: Rechtliches
+          - list [ref=e76]:
+            - listitem [ref=e77]:
+              - link "Impressum" [ref=e78] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e79]:
+              - link "Datenschutzerklärung" [ref=e80] [cursor=pointer]:
+                - /url: /datenschutz
+            - listitem [ref=e81]:
+              - button "Cookie-Einstellungen" [ref=e82] [cursor=pointer]
+      - generic [ref=e83]: © 2026 SuS Oestereiden e.V. 1922 · Alle Rechte vorbehalten
+  - button "Open Next.js Dev Tools" [ref=e89] [cursor=pointer]:
+    - img [ref=e90]
+  - alert [ref=e93]

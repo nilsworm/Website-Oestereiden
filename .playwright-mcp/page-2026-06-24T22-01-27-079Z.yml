@@ -1,0 +1,120 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "SuS Oestereiden 1922" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e6]:
+        - link "Fußball" [ref=e7] [cursor=pointer]:
+          - /url: /fussball
+          - text: Fußball
+        - link "Volleyball" [ref=e8] [cursor=pointer]:
+          - /url: /volleyball
+          - text: Volleyball
+        - link "Tennis" [ref=e9] [cursor=pointer]:
+          - /url: /tennis
+          - text: Tennis
+        - link "Breitensport" [ref=e10] [cursor=pointer]:
+          - /url: /breitensport
+          - text: Breitensport
+        - link "Hallenbelegung" [ref=e11] [cursor=pointer]:
+          - /url: /hallenbelegung
+          - text: Hallenbelegung
+        - link "Mitglied werden" [ref=e12] [cursor=pointer]:
+          - /url: /mitgliedschaft
+  - main [ref=e13]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - paragraph [ref=e18]: Seit 1922
+        - heading "Breitensport" [level=1] [ref=e19]
+        - paragraph [ref=e20]: SuS Oestereiden
+      - generic [ref=e22]: 🏃
+    - generic [ref=e24]:
+      - paragraph [ref=e25]: Team
+      - heading "Abteilungsvorstand" [level=2] [ref=e26]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - img "Carina Kaltschmidt" [ref=e30]
+          - paragraph [ref=e31]: Carina Kaltschmidt
+          - paragraph [ref=e32]: Abteilungsleiterin
+        - generic [ref=e33]:
+          - generic [ref=e35]: K
+          - paragraph [ref=e36]: Katja Molerus
+          - paragraph [ref=e37]: Geschäftsführerin
+        - generic [ref=e38]:
+          - generic [ref=e40]: S
+          - paragraph [ref=e41]: Sandra Heiermeier
+          - paragraph [ref=e42]: Kassiererin
+      - paragraph [ref=e43]: Angebot
+      - heading "Kursangebot" [level=2] [ref=e44]
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]: Kindertanzen
+          - generic [ref=e48]: "Leitung: Sandra Risse"
+        - generic [ref=e49]:
+          - generic [ref=e50]: Kinderturnen (3–4 Jahre)
+          - generic [ref=e51]: "Leitung: Carolin Kaup"
+        - generic [ref=e52]:
+          - generic [ref=e53]: Kinderturnen (5–6 Jahre)
+          - generic [ref=e54]: "Leitung: Sandra Risse"
+        - generic [ref=e55]:
+          - generic [ref=e56]: Kinderturnen (Vorschule)
+          - generic [ref=e57]: "Leitung: Paulin Herting"
+        - generic [ref=e58]:
+          - generic [ref=e59]: Kinderturnen (allgemein)
+          - generic [ref=e60]: "Leitung: Janina Luig"
+        - generic [ref=e61]:
+          - generic [ref=e62]: Tischtennis
+          - generic [ref=e63]: "Leitung: Wolfgang Schulte Schilawa"
+        - generic [ref=e64]:
+          - generic [ref=e65]: Fitness (Bauch-Beine-Po)
+          - generic [ref=e66]: "Leitung: Katja Molerus"
+        - generic [ref=e67]:
+          - generic [ref=e68]: Fit Mix
+          - generic [ref=e69]: "Leitung: Melanie Kussmann"
+        - generic [ref=e70]:
+          - generic [ref=e71]: Nordic Walking
+          - generic [ref=e72]: "Leitung: Melanie Kussmann"
+  - contentinfo [ref=e73]:
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - paragraph [ref=e77]: SuS Oestereiden
+          - paragraph [ref=e78]: e.V. 1922
+          - paragraph [ref=e79]:
+            - text: Im Kirchfeld 1
+            - text: 59602 Rüthen
+          - paragraph [ref=e80]:
+            - link "+49 2954 924590" [ref=e81] [cursor=pointer]:
+              - /url: tel:+4929549245900
+            - link "info@sus-oestereiden.de" [ref=e82] [cursor=pointer]:
+              - /url: mailto:info@sus-oestereiden.de
+        - generic [ref=e83]:
+          - paragraph [ref=e84]: Abteilungen
+          - list [ref=e85]:
+            - listitem [ref=e86]:
+              - link "Fußball" [ref=e87] [cursor=pointer]:
+                - /url: /fussball
+            - listitem [ref=e88]:
+              - link "Volleyball" [ref=e89] [cursor=pointer]:
+                - /url: /volleyball
+            - listitem [ref=e90]:
+              - link "Tennis" [ref=e91] [cursor=pointer]:
+                - /url: /tennis
+            - listitem [ref=e92]:
+              - link "Breitensport" [ref=e93] [cursor=pointer]:
+                - /url: /breitensport
+        - generic [ref=e94]:
+          - paragraph [ref=e95]: Rechtliches
+          - list [ref=e96]:
+            - listitem [ref=e97]:
+              - link "Impressum" [ref=e98] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e99]:
+              - link "Datenschutzerklärung" [ref=e100] [cursor=pointer]:
+                - /url: /datenschutz
+            - listitem [ref=e101]:
+              - button "Cookie-Einstellungen" [ref=e102] [cursor=pointer]
+      - generic [ref=e103]: © 2026 SuS Oestereiden e.V. 1922 · Alle Rechte vorbehalten
+  - button "Open Next.js Dev Tools" [ref=e109] [cursor=pointer]:
+    - img [ref=e110]
+  - alert [ref=e113]

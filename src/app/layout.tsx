@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de" className={`${inter.variable} h-full antialiased`}>
       <body className="font-sans min-h-screen flex flex-col bg-white">
         <Navbar />
-        <main className="flex-1 pt-16">
+        <main className="flex-1 pt-12">
           {children}
         </main>
         <Footer />

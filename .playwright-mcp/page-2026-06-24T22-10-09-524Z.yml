@@ -1,0 +1,120 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e5]:
+      - link "SuS Oestereiden Wappen SuS Oestereiden E.V. 1922" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "SuS Oestereiden Wappen" [ref=e7]
+        - generic [ref=e8]:
+          - generic [ref=e9]: SuS Oestereiden
+          - generic [ref=e10]: E.V. 1922
+      - generic [ref=e11]:
+        - link "Fußball" [ref=e12] [cursor=pointer]:
+          - /url: /fussball
+        - link "Volleyball" [ref=e13] [cursor=pointer]:
+          - /url: /volleyball
+        - link "Tennis" [ref=e14] [cursor=pointer]:
+          - /url: /tennis
+        - link "Breitensport" [ref=e15] [cursor=pointer]:
+          - /url: /breitensport
+        - link "Hallenbelegung" [ref=e16] [cursor=pointer]:
+          - /url: /hallenbelegung
+        - link "Mitglied werden" [ref=e17] [cursor=pointer]:
+          - /url: /mitgliedschaft
+  - main [ref=e18]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: Seit 1922
+        - heading "Fußball" [level=1] [ref=e24]
+        - paragraph [ref=e25]: SuS Oestereiden
+      - generic [ref=e27]: ⚽
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - paragraph [ref=e31]: Spielgemeinschaft
+        - heading "SG Haarstrang" [level=2] [ref=e32]
+        - paragraph [ref=e33]:
+          - text: Im Seniorenbereich spielen wir gemeinsam mit Partnerklubs in der SG Haarstrang. Mehr Infos unter
+          - link "www.sg-haarstrang.de" [ref=e34] [cursor=pointer]:
+            - /url: https://www.sg-haarstrang.de
+      - paragraph [ref=e35]: Team
+      - heading "Abteilungsvorstand" [level=2] [ref=e36]
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e40]: R
+          - paragraph [ref=e41]: Rolf Benteler
+          - paragraph [ref=e42]: Abteilungsleiter
+        - generic [ref=e43]:
+          - img "Markus Biermann" [ref=e45]
+          - paragraph [ref=e46]: Markus Biermann
+          - paragraph [ref=e47]: Stellvertretender Abteilungsleiter
+        - generic [ref=e48]:
+          - generic [ref=e50]: R
+          - paragraph [ref=e51]: Reinhard Mehn
+          - paragraph [ref=e52]: Stellvertretender Abteilungsleiter
+        - generic [ref=e53]:
+          - generic [ref=e55]: G
+          - paragraph [ref=e56]: Guido Horstschäfer
+          - paragraph [ref=e57]: Geschäftsführer
+        - generic [ref=e58]:
+          - generic [ref=e60]: T
+          - paragraph [ref=e61]: Thomas Mertens
+          - paragraph [ref=e62]: Kassierer
+        - generic [ref=e63]:
+          - generic [ref=e65]: D
+          - paragraph [ref=e66]: David Levening
+          - paragraph [ref=e67]: Beisitzer Herren
+        - generic [ref=e68]:
+          - generic [ref=e70]: M
+          - paragraph [ref=e71]: Markus Belda
+          - paragraph [ref=e72]: Koordinator A- bis D-Junioren
+        - generic [ref=e73]:
+          - generic [ref=e75]: M
+          - paragraph [ref=e76]: Matthias Lübke
+          - paragraph [ref=e77]: Koordinator E- bis G-Junioren
+        - generic [ref=e78]:
+          - generic [ref=e80]: J
+          - paragraph [ref=e81]: Josef Eickhoff
+          - paragraph [ref=e82]: Ehren-Beisitzer
+  - contentinfo [ref=e83]:
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - paragraph [ref=e87]: SuS Oestereiden
+          - paragraph [ref=e88]: e.V. 1922
+          - paragraph [ref=e89]:
+            - text: Im Kirchfeld 1
+            - text: 59602 Rüthen
+          - paragraph [ref=e90]:
+            - link "+49 2954 924590" [ref=e91] [cursor=pointer]:
+              - /url: tel:+4929549245900
+            - link "info@sus-oestereiden.de" [ref=e92] [cursor=pointer]:
+              - /url: mailto:info@sus-oestereiden.de
+        - generic [ref=e93]:
+          - paragraph [ref=e94]: Abteilungen
+          - list [ref=e95]:
+            - listitem [ref=e96]:
+              - link "Fußball" [ref=e97] [cursor=pointer]:
+                - /url: /fussball
+            - listitem [ref=e98]:
+              - link "Volleyball" [ref=e99] [cursor=pointer]:
+                - /url: /volleyball
+            - listitem [ref=e100]:
+              - link "Tennis" [ref=e101] [cursor=pointer]:
+                - /url: /tennis
+            - listitem [ref=e102]:
+              - link "Breitensport" [ref=e103] [cursor=pointer]:
+                - /url: /breitensport
+        - generic [ref=e104]:
+          - paragraph [ref=e105]: Rechtliches
+          - list [ref=e106]:
+            - listitem [ref=e107]:
+              - link "Impressum" [ref=e108] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e109]:
+              - link "Datenschutzerklärung" [ref=e110] [cursor=pointer]:
+                - /url: /datenschutz
+            - listitem [ref=e111]:
+              - button "Cookie-Einstellungen" [ref=e112] [cursor=pointer]
+      - generic [ref=e113]: © 2026 SuS Oestereiden e.V. 1922 · Alle Rechte vorbehalten
+  - button "Open Next.js Dev Tools" [ref=e119] [cursor=pointer]:
+    - img [ref=e120]
+  - alert [ref=e123]

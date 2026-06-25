@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: 'Fußball' }
 export default function FussballPage() {
   return (
     <>
-      <HeroSection title="Fußball" subtitle="SuS Oestereiden" />
+      <HeroSection title="Fußball" subtitle="SuS Oestereiden" bgImage="/images/hero/Fussball-30.jpg" />
 
       <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">

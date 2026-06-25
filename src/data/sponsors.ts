@@ -9,4 +9,6 @@ export const sponsors: Sponsor[] = [
   { name: 'Cormed',               logo: '/images/sponsors/cormed_100.png' },
   { name: 'Möbel Gerrits',        logo: '/images/sponsors/gerrits_100.png' },
   { name: 'Risseglas',            logo: '/images/sponsors/Risseglas_100.jpg' },
+  { name: 'Wilhelm Knepper',      logo: '/images/sponsors/knepper.gif' },
+  { name: 'Volksbank Brilon-Büren-Salzkotten', logo: '/images/sponsors/volksbank.png' },
 ]

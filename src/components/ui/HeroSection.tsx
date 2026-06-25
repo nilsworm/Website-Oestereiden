@@ -8,15 +8,22 @@ interface HeroSectionProps {
   subtitle: string
   description?: string
   icon?: string
+  bgImage?: string
   children?: React.ReactNode
 }
 
 const ease = [0.25, 0.1, 0.25, 1] as const
 
-export default function HeroSection({ title, subtitle, description, icon, children }: HeroSectionProps) {
+export default function HeroSection({ title, subtitle, description, icon, bgImage, children }: HeroSectionProps) {
   return (
-    <section className="relative bg-sus-navy text-sus-light clip-diagonal">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+    <section className="relative bg-sus-navy text-sus-light clip-diagonal overflow-hidden">
+      {bgImage && (
+        <>
+          <Image src={bgImage} alt="" fill priority className="object-cover object-center" />
+          <div className="absolute inset-0 bg-sus-navy/70" />
+        </>
+      )}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
         <div className="flex flex-col md:flex-row items-center gap-10">
           <div className="flex-1">
             <motion.p
@@ -79,7 +86,7 @@ export default function HeroSection({ title, subtitle, description, icon, childr
 
       {children && (
         <motion.div
-          className="bg-sus-club/80 py-4 px-4"
+          className="relative z-10 bg-sus-club/80 py-4 px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.55 }}

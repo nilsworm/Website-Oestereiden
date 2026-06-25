@@ -41,6 +41,7 @@ export default function HomePage() {
         title="SuS Oestereiden e.V."
         subtitle="Der Verein für die Region"
         description="Über 860 Mitglieder, vier Abteilungen, eine Gemeinschaft."
+        bgImage="/images/hero/Verein-allgemein-7.jpg"
       >
         {statsBar}
       </HeroSection>
@@ -67,6 +68,21 @@ export default function HomePage() {
           </AnimatedGrid>
         </div>
       </section>
+
+      {/* Fotoleiste — Vereinsleben */}
+      <div className="grid grid-cols-2 md:grid-cols-4 h-64 md:h-80">
+        {[
+          { src: '/images/hero/Fussball-30.jpg',       alt: 'Fußball' },
+          { src: '/images/hero/Tennis-2.jpg',           alt: 'Tennis' },
+          { src: '/images/hero/Kindertanzen-6.jpg',     alt: 'Breitensport' },
+          { src: '/images/hero/Verein-allgemein-16.jpg',alt: 'Vereinsleben' },
+        ].map(photo => (
+          <div key={photo.src} className="relative overflow-hidden">
+            <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-sus-navy/20 hover:bg-sus-navy/0 transition-colors duration-300" />
+          </div>
+        ))}
+      </div>
 
       {/* Vorsitzender-Zitat — DUNKEL */}
       <QuoteSection />

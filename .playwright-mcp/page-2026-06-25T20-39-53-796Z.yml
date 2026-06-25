@@ -1,0 +1,120 @@
+- generic [active] [ref=e1]:
+  - generic: 
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic:
+        - generic:
+          - img [ref=e6]
+          - link "Email" [ref=e10] [cursor=pointer]:
+            - /url: mailto:info@sus-oestereiden.de
+            - img "Email" [ref=e11]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - link [ref=e15] [cursor=pointer]:
+            - /url: https://www.sus-oestereiden.de
+          - text:  
+        - generic [ref=e17]:
+          - navigation:
+            - list [ref=e18]:
+              - listitem [ref=e19]:
+                - link "Der Verein" [ref=e20] [cursor=pointer]:
+                  - /url: https://www.sus-oestereiden.de/vereinsvorstand/
+              - listitem [ref=e21]:
+                - link "Breitensport" [ref=e22] [cursor=pointer]:
+                  - /url: https://www.sus-oestereiden.de/abteilungsvorstand-breitensport/
+              - listitem [ref=e23]:
+                - link "Fussball" [ref=e24] [cursor=pointer]:
+                  - /url: https://www.sus-oestereiden.de/abteilungsvorstand-fussball/
+              - listitem [ref=e25]:
+                - link "Tennis" [ref=e26] [cursor=pointer]:
+                  - /url: https://www.sus-oestereiden.de/abteilungsvorstand-tennis/
+              - listitem [ref=e27]:
+                - link "Volleyball" [ref=e28] [cursor=pointer]:
+                  - /url: https://www.sus-oestereiden.de/abteilungsvorstand-volleyball/
+              - listitem [ref=e29]:
+                - link "Service" [ref=e30] [cursor=pointer]:
+                  - /url: "#"
+                - text:   
+              - listitem [ref=e31]:
+                - link " Fanshop" [ref=e32] [cursor=pointer]:
+                  - /url: https://sus-oestereiden.fan12.de
+                  - generic [ref=e33]: 
+                  - text: Fanshop
+          - generic [ref=e34] [cursor=pointer]: 
+      - 'heading "Breitensport: Aktuelles & Termine" [level=1] [ref=e37]'
+    - generic [ref=e39]:
+      - generic [ref=e43]:
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - heading "llSuS Fußball@Facebook" [level=3] [ref=e50]
+            - paragraph [ref=e52]: "[custom-facebook-feed id=susoestereiden num=4]"
+          - generic [ref=e53]:
+            - heading "llAktuelle Beiträge" [level=3] [ref=e56]
+            - heading "llTermine" [level=3] [ref=e61]
+            - paragraph [ref=e63]: "[dpProEventCalendar id=”5″ type=”grid-upcoming” limit=”9″ columns=”3″]"
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - list
+          - list:
+            - listitem:
+              - link "" [ref=e71] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e72]: 
+            - listitem:
+              - link "" [ref=e73] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e74]: 
+      - generic [ref=e78]:
+        - link "Facebook" [ref=e79] [cursor=pointer]:
+          - /url: /#facebook
+          - generic:
+            - img
+          - generic [ref=e80]: Facebook
+        - link "Email" [ref=e81] [cursor=pointer]:
+          - /url: /#email
+          - generic:
+            - img
+          - generic [ref=e82]: Email
+        - link "Print" [ref=e83] [cursor=pointer]:
+          - /url: /#print
+          - generic:
+            - img
+          - generic [ref=e84]: Print
+    - contentinfo [ref=e85]:
+      - generic [ref=e88]:
+        - heading "Über Uns" [level=3] [ref=e89]
+        - generic [ref=e90]:
+          - paragraph [ref=e91]:
+            - strong [ref=e92]: Spiel- und Sportverein Oestereiden e. V. 1922
+          - list [ref=e93]:
+            - listitem [ref=e94]:
+              - generic [ref=e95]: 
+              - text: D 59602 Rüthen-Oestereiden
+            - listitem [ref=e96]:
+              - generic [ref=e97]: 
+              - link "info(at)sus-oestereiden.de" [ref=e98] [cursor=pointer]:
+                - /url: mailto:info@sus-oestereiden.de
+            - listitem [ref=e99]:
+              - generic [ref=e100]: 
+              - link "Impressum" [ref=e101] [cursor=pointer]:
+                - /url: http://www.sus-oestereiden.de/impressum/
+            - listitem [ref=e102]:
+              - generic [ref=e103]: 
+              - link "Datenschutzerklärung" [ref=e104] [cursor=pointer]:
+                - /url: " http://www.sus-oestereiden.de/datenschutzerklaerung/"
+            - listitem [ref=e105]:
+              - generic [ref=e106]: 
+              - link "Haftungsausschluss" [ref=e107] [cursor=pointer]:
+                - /url: http://www.sus-oestereiden.de/haftungsausschluss/
+          - paragraph [ref=e108]:
+            - strong [ref=e109]:
+              - link "www.sus-oestereiden.de" [ref=e110] [cursor=pointer]:
+                - /url: http://www.sus-oestereiden.de
+              - link "www.sg-haarstrang.de" [ref=e111] [cursor=pointer]:
+                - /url: http://www.sg-haarstrang.de
+              - link "www.sus-oestereiden-ev-1922.de" [ref=e112] [cursor=pointer]:
+                - /url: http://www.sus-oestereiden-ev-1922.de
+      - generic [ref=e114]:
+        - generic [ref=e115]: © Copyright 2020
+        - generic [ref=e116]: powered by SuS Oestereiden e. V.
+  - button "Zustimmung verwalten" [ref=e117] [cursor=pointer]
