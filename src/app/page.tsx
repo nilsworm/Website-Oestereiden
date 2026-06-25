@@ -45,14 +45,6 @@ export default function HomePage() {
         bgImage="/images/hero/Verein-allgemein-7.jpg"
       />
 
-      {/* Sponsoren — direkt unter Hero */}
-      <section className="py-10 px-4 bg-sus-navy border-t border-sus-muted/20">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[11px] font-semibold text-sus-light/30 uppercase tracking-[0.15em] text-center mb-6">Unsere Sponsoren</p>
-          <SponsorGrid sponsors={sponsors} />
-        </div>
-      </section>
-
       {/* Aktuelles — HELL */}
       <section className="min-h-[70vh] py-32 px-4 bg-white flex flex-col justify-center">
         <div className="max-w-7xl mx-auto w-full">
@@ -88,20 +80,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Fotoleiste — Vereinsleben */}
-      <div className="grid grid-cols-2 md:grid-cols-4 h-64 md:h-80">
-        {[
-          { src: '/images/hero/Fussball-30.jpg',       alt: 'Fußball' },
-          { src: '/images/hero/Tennis-2.jpg',           alt: 'Tennis' },
-          { src: '/images/hero/Kindertanzen-6.jpg',     alt: 'Breitensport' },
-          { src: '/images/hero/Verein-allgemein-16.jpg',alt: 'Vereinsleben' },
-        ].map(photo => (
-          <div key={photo.src} className="relative overflow-hidden">
-            <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-sus-navy/20 hover:bg-sus-navy/0 transition-colors duration-300" />
+      {/* Foto-Ticker — Vereinsleben */}
+      {(() => {
+        const photos = [
+          { src: '/images/hero/Fussball-30.jpg',        label: 'Fußball' },
+          { src: '/images/hero/Verein-allgemein-7.jpg',  label: 'Vereinsleben' },
+          { src: '/images/hero/Tennis-2.jpg',            label: 'Tennis' },
+          { src: '/images/hero/Kindertanzen-6.jpg',      label: 'Breitensport' },
+          { src: '/images/hero/Verein-allgemein-16.jpg', label: 'Der Verein' },
+        ]
+        const track = [...photos, ...photos]
+        return (
+          <div className="overflow-hidden bg-sus-ink">
+            <div className="flex animate-ticker w-max" style={{ animationDuration: '48s' }}>
+              {track.map((photo, i) => (
+                <div key={i} className="relative h-64 w-96 flex-shrink-0 overflow-hidden">
+                  <img
+                    src={photo.src}
+                    alt={photo.label}
+                    className="w-full h-full object-cover brightness-90"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-5 py-4">
+                    <span className="text-white/90 text-[11px] font-semibold uppercase tracking-[0.15em]">
+                      {photo.label}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
+        )
+      })()}
 
       {/* Vorsitzender-Zitat — DUNKEL */}
       <QuoteSection />
@@ -149,6 +158,14 @@ export default function HomePage() {
 
       {/* Vereinsinfos — HELL */}
       <VereinsinfoSection />
+
+      {/* Sponsoren — ganz unten */}
+      <section className="py-12 px-4 bg-sus-navy border-t border-sus-muted/20">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-[11px] font-semibold text-sus-light/30 uppercase tracking-[0.15em] text-center mb-8">Unsere Sponsoren</p>
+          <SponsorGrid sponsors={sponsors} />
+        </div>
+      </section>
 
     </>
   )
