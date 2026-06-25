@@ -131,25 +131,27 @@ export default function HomePage() {
       </section>
 
       {/* Vorstand — MITTEL */}
-      <section className="min-h-[70vh] py-32 px-4 bg-sus-club flex flex-col justify-center">
-        <div className="max-w-7xl mx-auto w-full">
+      <section className="py-16 px-4 bg-sus-club">
+        <div className="max-w-5xl mx-auto w-full">
           <FadeIn>
-            <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Team</p>
-            <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-sus-light mb-12">Vereinsvorstand</h2>
+            <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-2">Team</p>
+            <h2 className="text-[clamp(22px,3vw,36px)] font-bold text-sus-light mb-10">Vereinsvorstand</h2>
           </FadeIn>
-          <AnimatedGrid className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-6 mb-16">
+          <AnimatedGrid className="grid grid-cols-3 sm:grid-cols-6 gap-6 mb-10">
             {mainBoard.map(member => (
               <BoardMember key={member.name} member={member} />
             ))}
           </AnimatedGrid>
-          <FadeIn>
-            <p className="text-[11px] font-semibold text-sus-light/40 uppercase tracking-[0.15em] mb-6">Beisitzende</p>
-          </FadeIn>
-          <AnimatedGrid className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-            {advisoryBoard.map(member => (
-              <BoardMember key={member.name} member={member} />
-            ))}
-          </AnimatedGrid>
+          <div className="border-t border-sus-muted/30 pt-8">
+            <FadeIn>
+              <p className="text-[10px] font-semibold text-sus-light/30 uppercase tracking-[0.15em] mb-6">Beisitzende</p>
+            </FadeIn>
+            <AnimatedGrid className="grid grid-cols-4 gap-6">
+              {advisoryBoard.map(member => (
+                <BoardMember key={member.name} member={member} />
+              ))}
+            </AnimatedGrid>
+          </div>
         </div>
       </section>
 
