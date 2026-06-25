@@ -43,9 +43,7 @@ export default function HomePage() {
         subtitle="Der Verein für die Region"
         description="Über 860 Mitglieder, vier Abteilungen, eine Gemeinschaft."
         bgImage="/images/hero/Verein-allgemein-7.jpg"
-      >
-        {statsBar}
-      </HeroSection>
+      />
 
       {/* Sponsoren — direkt unter Hero */}
       <section className="py-10 px-4 bg-sus-navy border-t border-sus-muted/20">
