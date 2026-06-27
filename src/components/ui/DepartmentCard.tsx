@@ -1,8 +1,9 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Target, Globe, Disc, Activity, Award } from 'lucide-react'
 import type { DepartmentInfo, Department } from '@/lib/types'
 
-const DEPT_ICONS: Record<Department, React.ComponentType<{ size?: number; strokeWidth?: number }>> = {
+const DEPT_ICONS: Record<Department, React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>> = {
   fussball:     Target,
   volleyball:   Globe,
   tennis:       Disc,
@@ -10,20 +11,12 @@ const DEPT_ICONS: Record<Department, React.ComponentType<{ size?: number; stroke
   allgemein:    Award,
 }
 
-const DEPT_ICON_STYLE: Record<Department, string> = {
-  fussball:     'bg-[#1a35c8]/10 text-[#1a35c8]',
-  volleyball:   'bg-[#0d7a6e]/10 text-[#0d7a6e]',
-  tennis:       'bg-[#c47d0e]/10 text-[#c47d0e]',
-  breitensport: 'bg-[#6b4faa]/10 text-[#6b4faa]',
-  allgemein:    'bg-sus-ice text-sus-royal',
-}
-
-const DEPT_SHADOW: Record<Department, string> = {
-  fussball:     'hover:shadow-[0_8px_40px_rgba(26,53,200,0.2)]',
-  volleyball:   'hover:shadow-[0_8px_40px_rgba(13,122,110,0.2)]',
-  tennis:       'hover:shadow-[0_8px_40px_rgba(196,125,14,0.2)]',
-  breitensport: 'hover:shadow-[0_8px_40px_rgba(107,79,170,0.2)]',
-  allgemein:    'hover:shadow-[0_8px_40px_rgba(42,54,112,0.15)]',
+const DEPT_COLOR: Record<Department, string> = {
+  fussball:     'text-[#1a35c8]',
+  volleyball:   'text-[#0d7a6e]',
+  tennis:       'text-[#c47d0e]',
+  breitensport: 'text-[#6b4faa]',
+  allgemein:    'text-[#1a35c8]',
 }
 
 interface DepartmentCardProps {
@@ -35,15 +28,31 @@ export default function DepartmentCard({ department }: DepartmentCardProps) {
 
   return (
     <Link href={`/${department.id}`} className="group block h-full">
-      <div className={`bg-white rounded-xl shadow-sm p-6 h-full hover:-translate-y-1 transition-all duration-200 ${DEPT_SHADOW[department.id]}`}>
-        <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${DEPT_ICON_STYLE[department.id]}`}>
-          <Icon size={26} strokeWidth={1.75} />
+      <div className="bg-white rounded-2xl overflow-hidden h-full shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-200">
+        {department.heroImage ? (
+          <div className="relative h-40 w-full overflow-hidden">
+            <Image
+              src={department.heroImage}
+              alt={department.label}
+              fill
+              sizes="(max-width: 640px) 50vw, 25vw"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        ) : (
+          <div className="h-40 flex items-center justify-center bg-gray-50">
+            <Icon size={48} strokeWidth={1.25} className={DEPT_COLOR[department.id]} />
+          </div>
+        )}
+        <div className="p-5">
+          <div className="flex items-center justify-between mb-1">
+            <h3 className="font-bold text-base text-[#1d1d1f] group-hover:text-[#1a35c8] transition-colors">
+              {department.label}
+            </h3>
+            <span className="text-[#6e6e73] text-lg leading-none group-hover:translate-x-0.5 transition-transform">›</span>
+          </div>
+          <p className="text-[#6e6e73] text-sm leading-relaxed">{department.description}</p>
         </div>
-        <h3 className="font-bold text-lg text-sus-ink mb-2 group-hover:text-sus-royal transition-colors">
-          {department.label}
-        </h3>
-        <p className="text-sus-ink/60 text-sm leading-relaxed mb-4">{department.description}</p>
-        <p className="text-xs text-sus-ink/30 font-medium">Leitung: {department.head}</p>
       </div>
     </Link>
   )
