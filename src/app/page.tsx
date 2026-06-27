@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import HeroSection from '@/components/ui/HeroSection'
 import EventCard from '@/components/ui/EventCard'
 import BoardMember from '@/components/ui/BoardMember'
@@ -19,22 +20,6 @@ export const metadata: Metadata = {
   title: 'SuS Oestereiden e.V. 1922 — Der Verein für die Region',
 }
 
-const statsBar = (
-  <div className="flex flex-wrap items-center gap-6 text-sus-light/70 text-sm font-medium">
-    {[
-      { value: '1922', label: 'Gegründet' },
-      { value: '860+', label: 'Mitglieder' },
-      { value: '4', label: 'Abteilungen' },
-      { value: 'Rüthen', label: 'Standort' },
-    ].map(stat => (
-      <div key={stat.label} className="flex items-baseline gap-1.5">
-        <span className="text-sus-light font-bold text-lg">{stat.value}</span>
-        <span>{stat.label}</span>
-      </div>
-    ))}
-  </div>
-)
-
 export default function HomePage() {
   return (
     <>
@@ -43,16 +28,42 @@ export default function HomePage() {
         subtitle="Der Verein für die Region"
         description="Über 860 Mitglieder, vier Abteilungen, eine Gemeinschaft."
         bgImage="/images/hero/Verein-allgemein-7.jpg"
-      />
+      >
+        <div className="flex flex-wrap gap-3 mt-8">
+          <Link
+            href="/mitgliedschaft"
+            className="px-6 py-3 bg-[#1a35c8] text-white text-sm font-semibold rounded-full hover:bg-[#1a35c8]/90 transition-colors"
+          >
+            Mitglied werden
+          </Link>
+          <Link
+            href="#abteilungen"
+            className="px-6 py-3 border border-[#1d1d1f]/20 text-[#1d1d1f] text-sm font-semibold rounded-full hover:bg-[#1d1d1f]/5 transition-colors"
+          >
+            Abteilungen
+          </Link>
+        </div>
+      </HeroSection>
 
-      {/* Aktuelles — HELL */}
-      <section className="min-h-[70vh] py-32 px-4 bg-white flex flex-col justify-center">
-        <div className="max-w-7xl mx-auto w-full">
+      {/* Aktuelles */}
+      <section className="py-20 md:py-28 bg-[#f5f5f7]">
+        <div className="max-w-7xl mx-auto w-full px-4">
           <FadeIn>
-            <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Aktuell</p>
-            <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-sus-ink mb-10">Termine & Neuigkeiten</h2>
+            <p className="text-xs font-semibold text-[#1a35c8] uppercase tracking-[0.15em] mb-3">Aktuell</p>
+            <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-[#1d1d1f] mb-10">Termine & Neuigkeiten</h2>
           </FadeIn>
-          <AnimatedGrid className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        </div>
+        {/* Mobile: horizontaler Scroll */}
+        <div className="md:hidden flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory">
+          {events.map((event, i) => (
+            <div key={i} className="flex-shrink-0 w-[300px] snap-start">
+              <EventCard event={event} />
+            </div>
+          ))}
+        </div>
+        {/* Desktop: Grid */}
+        <div className="hidden md:block max-w-7xl mx-auto px-4">
+          <AnimatedGrid className="grid grid-cols-3 gap-6">
             {events.map((event, i) => (
               <EventCard key={i} event={event} />
             ))}
@@ -60,18 +71,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Über den Verein — DUNKEL */}
-      <section className="min-h-[70vh] py-32 px-4 bg-sus-navy text-sus-light flex flex-col justify-center">
+      {/* Über den Verein + Stats */}
+      <section className="py-20 md:py-28 px-4 bg-white">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <FadeIn>
-              <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Der Verein</p>
-              <h2 className="text-[clamp(28px,4vw,48px)] font-bold mb-6">Seit über 100 Jahren<br />für die Region</h2>
-              <p className="text-sus-light/60 leading-relaxed mb-4 text-lg">
+              <p className="text-xs font-semibold text-[#1a35c8] uppercase tracking-[0.15em] mb-3">Der Verein</p>
+              <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-[#1d1d1f] mb-6">
+                Seit über 100 Jahren<br />für die Region
+              </h2>
+              <p className="text-[#6e6e73] leading-relaxed mb-4 text-lg">
                 Der Spiel- und Sportverein Oestereiden e.V. wurde 1922 gegründet und ist heute mit
                 über 860 Mitgliedern der größte Verein im Stadtgebiet Rüthen.
               </p>
-              <p className="text-sus-light/60 leading-relaxed">
+              <p className="text-[#6e6e73] leading-relaxed">
                 Mit vier aktiven Abteilungen bieten wir Sport und Gemeinschaft für jedes Alter.
               </p>
             </FadeIn>
@@ -80,18 +93,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Foto-Ticker — Vereinsleben */}
+      {/* Foto-Ticker */}
       {(() => {
         const photos = [
-          { src: '/images/hero/Fussball-30.jpg',        label: 'Fußball' },
-          { src: '/images/hero/Verein-allgemein-7.jpg',  label: 'Vereinsleben' },
-          { src: '/images/hero/Tennis-2.jpg',            label: 'Tennis' },
-          { src: '/images/hero/Kindertanzen-6.jpg',      label: 'Breitensport' },
-          { src: '/images/hero/Verein-allgemein-16.jpg', label: 'Der Verein' },
+          { src: '/images/hero/Fussball-30.jpg',          label: 'Fußball' },
+          { src: '/images/hero/Verein-allgemein-7.jpg',   label: 'Vereinsleben' },
+          { src: '/images/hero/Tennis-2.jpg',             label: 'Tennis' },
+          { src: '/images/hero/Kindertanzen-6.jpg',       label: 'Breitensport' },
+          { src: '/images/hero/Verein-allgemein-16.jpg',  label: 'Der Verein' },
         ]
         const track = [...photos, ...photos]
         return (
-          <div className="overflow-hidden bg-sus-ink">
+          <div className="overflow-hidden bg-[#0a0e1a]">
             <div className="flex animate-ticker w-max" style={{ animationDuration: '48s' }}>
               {track.map((photo, i) => (
                 <div key={i} className="relative h-64 w-96 flex-shrink-0 overflow-hidden">
@@ -112,17 +125,17 @@ export default function HomePage() {
         )
       })()}
 
-      {/* Vorsitzender-Zitat — DUNKEL */}
+      {/* Vorsitzender-Zitat */}
       <QuoteSection />
 
-      {/* Abteilungen — HELL */}
-      <section className="min-h-[70vh] py-32 px-4 bg-white flex flex-col justify-center">
+      {/* Abteilungen */}
+      <section id="abteilungen" className="py-20 md:py-28 px-4 bg-[#f5f5f7]">
         <div className="max-w-7xl mx-auto w-full">
           <FadeIn>
-            <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Sport</p>
-            <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-sus-ink mb-10">Unsere Abteilungen</h2>
+            <p className="text-xs font-semibold text-[#1a35c8] uppercase tracking-[0.15em] mb-3">Sport</p>
+            <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-[#1d1d1f] mb-10">Unsere Abteilungen</h2>
           </FadeIn>
-          <AnimatedGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <AnimatedGrid className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {departments.map(dept => (
               <DepartmentCard key={dept.id} department={dept} />
             ))}
@@ -130,23 +143,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Vorstand — MITTEL */}
-      <section className="py-16 px-4 bg-sus-club">
+      {/* Vorstand */}
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto w-full">
           <FadeIn>
-            <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-2">Team</p>
-            <h2 className="text-[clamp(22px,3vw,36px)] font-bold text-sus-light mb-10">Vereinsvorstand</h2>
+            <p className="text-xs font-semibold text-[#1a35c8] uppercase tracking-[0.15em] mb-2">Team</p>
+            <h2 className="text-[clamp(22px,3vw,36px)] font-bold text-[#1d1d1f] mb-10">Vereinsvorstand</h2>
           </FadeIn>
-          <AnimatedGrid className="grid grid-cols-3 sm:grid-cols-6 gap-6 mb-10">
+          {/* Mobile: horizontaler Scroll */}
+          <div className="md:hidden flex gap-6 overflow-x-auto pb-4 snap-x">
+            {mainBoard.map(member => (
+              <div key={member.name} className="flex-shrink-0 w-20 snap-start">
+                <BoardMember member={member} />
+              </div>
+            ))}
+          </div>
+          {/* Desktop: Grid */}
+          <AnimatedGrid className="hidden md:grid grid-cols-6 gap-6 mb-10">
             {mainBoard.map(member => (
               <BoardMember key={member.name} member={member} />
             ))}
           </AnimatedGrid>
-          <div className="border-t border-sus-muted/30 pt-8">
+          <div className="border-t border-gray-200 pt-8 mt-8">
             <FadeIn>
-              <p className="text-[10px] font-semibold text-sus-light/30 uppercase tracking-[0.15em] mb-6">Beisitzende</p>
+              <p className="text-[10px] font-semibold text-[#6e6e73] uppercase tracking-[0.15em] mb-6">Beisitzende</p>
             </FadeIn>
-            <AnimatedGrid className="grid grid-cols-4 gap-6">
+            {/* Mobile: horizontaler Scroll */}
+            <div className="md:hidden flex gap-6 overflow-x-auto pb-4 snap-x">
+              {advisoryBoard.map(member => (
+                <div key={member.name} className="flex-shrink-0 w-20 snap-start">
+                  <BoardMember member={member} />
+                </div>
+              ))}
+            </div>
+            {/* Desktop: Grid */}
+            <AnimatedGrid className="hidden md:grid grid-cols-4 gap-6">
               {advisoryBoard.map(member => (
                 <BoardMember key={member.name} member={member} />
               ))}
@@ -155,20 +186,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Standort — DUNKEL */}
+      {/* Standort */}
       <StandortSection />
 
-      {/* Vereinsinfos — HELL */}
+      {/* Vereinsinfos */}
       <VereinsinfoSection />
 
-      {/* Sponsoren — ganz unten */}
-      <section className="py-12 px-4 bg-sus-navy border-t border-sus-muted/20">
+      {/* Sponsoren */}
+      <section className="py-12 px-4 bg-[#f5f5f7] border-t border-gray-200/60">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[11px] font-semibold text-sus-light/30 uppercase tracking-[0.15em] text-center mb-8">Unsere Sponsoren</p>
+          <p className="text-[11px] font-semibold text-[#6e6e73] uppercase tracking-[0.15em] text-center mb-8">
+            Unsere Sponsoren
+          </p>
           <SponsorGrid sponsors={sponsors} />
         </div>
       </section>
-
     </>
   )
 }
