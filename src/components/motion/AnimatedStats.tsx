@@ -12,14 +12,14 @@ const stats = [
 
 export default function AnimatedStats() {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
       {stats.map((stat, i) => (
-        <FadeIn key={stat.label} delay={i * 0.1}>
-          <div className="bg-sus-club/50 rounded-2xl p-8 text-center border border-sus-muted/40">
-            <div className="text-4xl font-black text-sus-royal mb-1">
+        <FadeIn key={stat.label} delay={i * 0.08}>
+          <div className="text-center">
+            <div className="text-[clamp(36px,5vw,64px)] font-black text-[#1a35c8] leading-none mb-2">
               <CountUp target={stat.value} />
             </div>
-            <div className="text-sm text-sus-light/50 font-medium">{stat.label}</div>
+            <div className="text-sm text-[#6e6e73] font-medium">{stat.label}</div>
           </div>
         </FadeIn>
       ))}
