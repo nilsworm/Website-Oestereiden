@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import CookieBanner from '@/components/layout/CookieBanner'
+import BottomTabBar from '@/components/layout/BottomTabBar'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -21,10 +22,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de" className={`${inter.variable} h-full antialiased`}>
       <body className="font-sans min-h-screen flex flex-col bg-white">
         <Navbar />
-        <main className="flex-1 pt-12">
+        <main className="flex-1 pt-14 pb-20 md:pb-0">
           {children}
         </main>
         <Footer />
+        <BottomTabBar />
         <CookieBanner />
       </body>
     </html>
