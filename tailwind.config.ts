@@ -26,6 +26,12 @@ const config: Config = {
           breitensport: '#6b4faa',
           allgemein:    '#2a3670',
         },
+        apple: {
+          text:      '#1d1d1f',
+          secondary: '#6e6e73',
+          surface:   '#f5f5f7',
+          dark:      '#1d1d1f',
+        },
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

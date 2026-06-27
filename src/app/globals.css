@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply text-sus-ink bg-white antialiased;
+    @apply text-apple-text bg-white antialiased;
     font-feature-settings: 'kern', 'liga', 'calt';
   }
 
@@ -36,8 +36,7 @@
     animation-play-state: paused;
   }
 
-  .clip-diagonal {
-    clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
-    padding-bottom: 8%;
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
