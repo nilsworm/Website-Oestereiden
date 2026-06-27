@@ -37,4 +37,5 @@ export interface DepartmentInfo {
   label: string
   description: string
   head: string
+  heroImage?: string
 }
