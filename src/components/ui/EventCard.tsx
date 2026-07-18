@@ -30,17 +30,17 @@ interface EventCardProps {
 
 export default function EventCard({ event }: EventCardProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] p-6 h-full hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.10)] transition-all duration-200">
+    <div className="surface-raised rounded-2xl p-6 h-full transition-transform duration-200 hover:-translate-y-1">
       <div className="flex items-start justify-between gap-3 mb-4">
-        <time className="text-xs font-semibold text-[#6e6e73] uppercase tracking-[0.08em]">
+        <time className="text-xs font-semibold text-ui-muted uppercase tracking-[0.08em]">
           {formatDate(event.date)}
         </time>
         <span className={`text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 ${DEPT_TAG[event.department]}`}>
           {DEPT_LABELS[event.department]}
         </span>
       </div>
-      <h3 className="font-bold text-[#1d1d1f] text-base mb-2 leading-snug">{event.title}</h3>
-      <p className="text-[#6e6e73] text-sm leading-relaxed">{event.description}</p>
+      <h3 className="font-bold text-ui-text text-base mb-2 leading-snug">{event.title}</h3>
+      <p className="text-ui-muted text-sm leading-relaxed">{event.description}</p>
     </div>
   )
 }

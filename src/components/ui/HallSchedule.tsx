@@ -16,11 +16,11 @@ const DAY_SHORT: Record<Day, string> = {
 }
 
 const DEPT_SLOT: Record<Department, string> = {
-  fussball:     'border-l-[#1a35c8] bg-[#1a35c8]/5',
-  volleyball:   'border-l-[#0d7a6e] bg-[#0d7a6e]/5',
-  tennis:       'border-l-[#c47d0e] bg-[#c47d0e]/5',
-  breitensport: 'border-l-[#6b4faa] bg-[#6b4faa]/5',
-  allgemein:    'border-l-sus-muted bg-sus-muted/5',
+  fussball:     'bg-[#1a35c8]/10',
+  volleyball:   'bg-[#0d7a6e]/10',
+  tennis:       'bg-[#c47d0e]/10',
+  breitensport: 'bg-[#6b4faa]/10',
+  allgemein:    'bg-ui-muted/10',
 }
 
 interface HallScheduleProps {
@@ -80,7 +80,7 @@ export default function HallSchedule({ slots }: HallScheduleProps) {
                   {daySlots.length === 0 ? (
                     <div className="text-center text-xs text-sus-ink/20 py-3">–</div>
                   ) : (
-                    daySlots.map((slot, i) => (
+                    daySlots.map(slot => (
                       <motion.div
                         key={`${slot.group}-${slot.startTime}`}
                         layout
@@ -88,7 +88,7 @@ export default function HallSchedule({ slots }: HallScheduleProps) {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className={`relative rounded-lg border-l-4 p-2.5 text-xs cursor-default ${DEPT_SLOT[slot.department]}`}
+                        className={`relative rounded-lg p-2.5 text-xs cursor-default ${DEPT_SLOT[slot.department]}`}
                         onMouseEnter={() => setTooltip(slot)}
                         onMouseLeave={() => setTooltip(null)}
                       >

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 
 type ConsentState = {
   functional: true
@@ -9,9 +9,14 @@ type ConsentState = {
 }
 
 const STORAGE_KEY = 'sus-cookie-consent'
+const subscribeToConsent = () => () => {}
+const hasStoredConsent = () => Boolean(window.localStorage.getItem(STORAGE_KEY))
+const hasNoStoredConsentOnServer = () => false
 
 export default function CookieBanner() {
-  const [visible, setVisible] = useState(false)
+  const hasConsent = useSyncExternalStore(subscribeToConsent, hasStoredConsent, hasNoStoredConsentOnServer)
+  const [forceVisible, setForceVisible] = useState(false)
+  const [hasSavedInSession, setHasSavedInSession] = useState(false)
   const [expanded, setExpanded] = useState(false)
   const [consent, setConsent] = useState<ConsentState>({
     functional: true,
@@ -20,38 +25,38 @@ export default function CookieBanner() {
   })
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    if (!stored) setVisible(true)
-
-    const handler = () => setVisible(true)
+    const handler = () => setForceVisible(true)
     window.addEventListener('open-cookie-banner', handler)
-    return () => window.removeEventListener('open-cookie-banner', handler)
+    return () => {
+      window.removeEventListener('open-cookie-banner', handler)
+    }
   }, [])
 
   const save = (state: ConsentState) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
-    setVisible(false)
+    setHasSavedInSession(true)
+    setForceVisible(false)
     setExpanded(false)
   }
 
-  if (!visible) return null
+  if ((hasConsent || hasSavedInSession) && !forceVisible) return null
 
   return (
     <div className="fixed bottom-6 left-6 z-50 w-full max-w-md">
-      <div className="rounded-2xl border border-sus-muted bg-[rgba(10,14,26,0.92)] backdrop-blur-[16px] p-5 shadow-2xl">
-        <p className="text-sm text-sus-light/70 leading-relaxed mb-4">
+      <div className="rounded-2xl border divider bg-ui-raised/95 backdrop-blur-[16px] p-5 shadow-lg">
+        <p className="text-sm text-ui-muted leading-relaxed mb-4">
           Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung zu bieten.
           Funktionale Cookies sind für den Betrieb notwendig.
         </p>
 
         {expanded && (
-          <div className="mb-4 space-y-2 bg-sus-muted/20 rounded-lg p-3">
-            <label className="flex items-center gap-2 text-sm text-sus-light/60">
+          <div className="mb-4 space-y-2 bg-ui-surface rounded-lg p-3">
+            <label className="flex items-center gap-2 text-sm text-ui-muted">
               <input type="checkbox" checked disabled readOnly className="accent-sus-royal" />
               <span className="font-medium">Funktional</span>
               <span className="text-xs opacity-60">(immer aktiv)</span>
             </label>
-            <label className="flex items-center gap-2 text-sm text-sus-light cursor-pointer">
+            <label className="flex items-center gap-2 text-sm text-ui-text cursor-pointer">
               <input
                 type="checkbox"
                 checked={consent.statistics}
@@ -60,7 +65,7 @@ export default function CookieBanner() {
               />
               <span className="font-medium">Statistiken</span>
             </label>
-            <label className="flex items-center gap-2 text-sm text-sus-light cursor-pointer">
+            <label className="flex items-center gap-2 text-sm text-ui-text cursor-pointer">
               <input
                 type="checkbox"
                 checked={consent.marketing}
@@ -75,27 +80,27 @@ export default function CookieBanner() {
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => save({ functional: true, statistics: true, marketing: true })}
-            className="px-4 py-2 bg-sus-royal text-white text-sm font-semibold rounded-lg hover:bg-sus-royal/90 transition-colors"
+            className="px-4 py-2 bg-ui-accent text-white text-sm font-semibold rounded-lg hover:bg-ui-accent-strong transition-colors"
           >
             Alle akzeptieren
           </button>
           <button
             onClick={() => save({ functional: true, statistics: false, marketing: false })}
-            className="px-4 py-2 border border-sus-muted text-sus-light/70 text-sm font-medium rounded-lg hover:text-sus-light hover:border-sus-light/40 transition-colors"
+            className="px-4 py-2 border divider text-ui-muted text-sm font-medium rounded-lg hover:text-ui-text transition-colors"
           >
             Nur notwendige
           </button>
           {expanded ? (
             <button
               onClick={() => save(consent)}
-              className="px-4 py-2 border border-sus-royal text-sus-royal text-sm font-medium rounded-lg hover:bg-sus-royal/10 transition-colors"
+              className="px-4 py-2 border border-ui-accent text-ui-accent text-sm font-medium rounded-lg hover:bg-ui-accent/10 transition-colors"
             >
               Einstellungen speichern
             </button>
           ) : (
             <button
               onClick={() => setExpanded(true)}
-              className="px-4 py-2 border border-sus-muted text-sus-light/70 text-sm font-medium rounded-lg hover:text-sus-light hover:border-sus-light/40 transition-colors"
+              className="px-4 py-2 border divider text-ui-muted text-sm font-medium rounded-lg hover:text-ui-text transition-colors"
             >
               Einstellungen
             </button>

@@ -4,11 +4,11 @@ export const metadata: Metadata = { title: 'Datenschutzerklärung' }
 
 export default function DatenschutzPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-20">
+    <div className="max-w-3xl mx-auto px-4 py-20 text-ui-text">
       <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Rechtliches</p>
       <h1 className="text-4xl font-black text-sus-ink mb-10">Datenschutzerklärung</h1>
 
-      <div className="prose prose-zinc max-w-none prose-headings:font-bold prose-a:text-sus-royal">
+      <div className="prose max-w-none prose-headings:font-bold prose-a:text-sus-royal dark:prose-invert">
         <h2>1. Datenschutz auf einen Blick</h2>
         <p>
           Der Betreiber dieser Website nimmt den Schutz Ihrer persönlichen Daten sehr ernst.
@@ -36,7 +36,7 @@ export default function DatenschutzPage() {
           Wir verwenden ausschließlich technisch notwendige Cookies sowie optionale Cookies
           nach Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Ihre Cookie-Einwilligung
           speichern wir lokal in Ihrem Browser (localStorage). Sie können Ihre Einwilligung
-          jederzeit über den Link „Cookie-Einstellungen" im Footer widerrufen.
+          jederzeit über den Link „Cookie-Einstellungen“ im Footer widerrufen.
         </p>
         <h2>5. Ihre Rechte</h2>
         <ul>

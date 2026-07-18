@@ -24,7 +24,7 @@ export default function BottomTabBar() {
   return (
     <>
       <nav
-        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/80 backdrop-blur-xl border-t border-gray-200/60"
+        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-ui-canvas/85 backdrop-blur-xl border-t divider"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         <div className="flex items-stretch">
@@ -43,9 +43,9 @@ export default function BottomTabBar() {
                 <Icon
                   size={22}
                   strokeWidth={isActive ? 2 : 1.5}
-                  className={isActive ? 'text-[#1a35c8]' : 'text-[#6e6e73]'}
+                  className={isActive ? 'text-ui-accent' : 'text-ui-muted'}
                 />
-                <span className={`text-[10px] font-medium leading-none ${isActive ? 'text-[#1a35c8]' : 'text-[#6e6e73]'}`}>
+                <span className={`text-[10px] font-medium leading-none ${isActive ? 'text-ui-accent' : 'text-ui-muted'}`}>
                   {tab.label}
                 </span>
               </Link>
@@ -59,9 +59,9 @@ export default function BottomTabBar() {
             <Grid2x2
               size={22}
               strokeWidth={isMoreActive || sheetOpen ? 2 : 1.5}
-              className={isMoreActive || sheetOpen ? 'text-[#1a35c8]' : 'text-[#6e6e73]'}
+              className={isMoreActive || sheetOpen ? 'text-ui-accent' : 'text-ui-muted'}
             />
-            <span className={`text-[10px] font-medium leading-none ${isMoreActive || sheetOpen ? 'text-[#1a35c8]' : 'text-[#6e6e73]'}`}>
+            <span className={`text-[10px] font-medium leading-none ${isMoreActive || sheetOpen ? 'text-ui-accent' : 'text-ui-muted'}`}>
               Mehr
             </span>
           </button>

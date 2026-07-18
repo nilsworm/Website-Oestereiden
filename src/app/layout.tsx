@@ -1,12 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import CookieBanner from '@/components/layout/CookieBanner'
 import BottomTabBar from '@/components/layout/BottomTabBar'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   title: {
@@ -19,8 +16,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={`${inter.variable} h-full antialiased`}>
-      <body className="font-sans min-h-screen flex flex-col bg-white">
+    <html lang="de" className="h-full">
+      <body className="font-sans min-h-screen flex flex-col bg-ui-canvas">
         <Navbar />
         <main className="flex-1 pt-14 pb-20 md:pb-0">
           {children}

@@ -20,7 +20,7 @@ export default function MitgliedschaftPage() {
        
       />
 
-      <section className="py-24 px-4 bg-white">
+      <section className="py-24 px-4 page-surface">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Der Verein</p>
           <h2 className="text-[clamp(24px,3vw,40px)] font-bold text-sus-ink mb-6">Über uns</h2>
@@ -68,7 +68,7 @@ export default function MitgliedschaftPage() {
           </div>
           <a
             href="/downloads/aufnahmeantrag.pdf"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-sus-royal text-white font-semibold rounded-xl hover:bg-sus-royal/90 transition-colors"
+            className="button-primary rounded-xl px-6 py-3"
           >
             Aufnahmeantrag herunterladen (PDF)
           </a>

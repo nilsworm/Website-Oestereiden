@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import HeroSection from '@/components/ui/HeroSection'
 import EventCard from '@/components/ui/EventCard'
 import BoardMember from '@/components/ui/BoardMember'
@@ -32,13 +33,13 @@ export default function HomePage() {
         <div className="flex flex-wrap gap-3 mt-8">
           <Link
             href="/mitgliedschaft"
-            className="px-6 py-3 bg-[#1a35c8] text-white text-sm font-semibold rounded-full hover:bg-[#1a35c8]/90 transition-colors"
+            className="button-primary px-6 py-3"
           >
             Mitglied werden
           </Link>
           <Link
             href="#abteilungen"
-            className="px-6 py-3 border border-[#1d1d1f]/20 text-[#1d1d1f] text-sm font-semibold rounded-full hover:bg-[#1d1d1f]/5 transition-colors"
+            className="button-secondary px-6 py-3"
           >
             Abteilungen
           </Link>
@@ -46,11 +47,11 @@ export default function HomePage() {
       </HeroSection>
 
       {/* Aktuelles */}
-      <section className="py-20 md:py-28 bg-[#f5f5f7]">
+      <section className="py-20 md:py-28 page-surface-muted">
         <div className="max-w-7xl mx-auto w-full px-4">
           <FadeIn>
-            <p className="text-xs font-semibold text-[#1a35c8] uppercase tracking-[0.15em] mb-3">Aktuell</p>
-            <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-[#1d1d1f] mb-10">Termine & Neuigkeiten</h2>
+            <p className="eyebrow mb-3">Aktuell</p>
+            <h2 className="section-title mb-10">Termine & Neuigkeiten</h2>
           </FadeIn>
         </div>
         {/* Mobile: horizontaler Scroll */}
@@ -72,19 +73,19 @@ export default function HomePage() {
       </section>
 
       {/* Über den Verein + Stats */}
-      <section className="py-20 md:py-28 px-4 bg-white">
+      <section className="py-20 md:py-28 px-4 page-surface">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <FadeIn>
-              <p className="text-xs font-semibold text-[#1a35c8] uppercase tracking-[0.15em] mb-3">Der Verein</p>
-              <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-[#1d1d1f] mb-6">
+              <p className="eyebrow mb-3">Der Verein</p>
+              <h2 className="section-title mb-6">
                 Seit über 100 Jahren<br />für die Region
               </h2>
-              <p className="text-[#6e6e73] leading-relaxed mb-4 text-lg">
+              <p className="text-secondary leading-relaxed mb-4 text-lg">
                 Der Spiel- und Sportverein Oestereiden e.V. wurde 1922 gegründet und ist heute mit
                 über 860 Mitgliedern der größte Verein im Stadtgebiet Rüthen.
               </p>
-              <p className="text-[#6e6e73] leading-relaxed">
+              <p className="text-secondary leading-relaxed">
                 Mit vier aktiven Abteilungen bieten wir Sport und Gemeinschaft für jedes Alter.
               </p>
             </FadeIn>
@@ -108,10 +109,12 @@ export default function HomePage() {
             <div className="flex animate-ticker w-max" style={{ animationDuration: '48s' }}>
               {track.map((photo, i) => (
                 <div key={i} className="relative h-64 w-96 flex-shrink-0 overflow-hidden">
-                  <img
+                  <Image
                     src={photo.src}
                     alt={photo.label}
-                    className="w-full h-full object-cover brightness-90"
+                    fill
+                    sizes="384px"
+                    className="object-cover brightness-90"
                   />
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-5 py-4">
                     <span className="text-white/90 text-[11px] font-semibold uppercase tracking-[0.15em]">
@@ -129,11 +132,11 @@ export default function HomePage() {
       <QuoteSection />
 
       {/* Abteilungen */}
-      <section id="abteilungen" className="py-20 md:py-28 px-4 bg-[#f5f5f7]">
+      <section id="abteilungen" className="py-20 md:py-28 px-4 page-surface-muted">
         <div className="max-w-7xl mx-auto w-full">
           <FadeIn>
-            <p className="text-xs font-semibold text-[#1a35c8] uppercase tracking-[0.15em] mb-3">Sport</p>
-            <h2 className="text-[clamp(28px,4vw,48px)] font-bold text-[#1d1d1f] mb-10">Unsere Abteilungen</h2>
+            <p className="eyebrow mb-3">Sport</p>
+            <h2 className="section-title mb-10">Unsere Abteilungen</h2>
           </FadeIn>
           <AnimatedGrid className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {departments.map(dept => (
@@ -144,11 +147,11 @@ export default function HomePage() {
       </section>
 
       {/* Vorstand */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 page-surface">
         <div className="max-w-5xl mx-auto w-full">
           <FadeIn>
-            <p className="text-xs font-semibold text-[#1a35c8] uppercase tracking-[0.15em] mb-2">Team</p>
-            <h2 className="text-[clamp(22px,3vw,36px)] font-bold text-[#1d1d1f] mb-10">Vereinsvorstand</h2>
+            <p className="eyebrow mb-2">Team</p>
+            <h2 className="text-[clamp(22px,3vw,36px)] font-bold text-ui-text mb-10">Vereinsvorstand</h2>
           </FadeIn>
           {/* Mobile: horizontaler Scroll */}
           <div className="md:hidden flex gap-6 overflow-x-auto pb-4 snap-x">
@@ -164,9 +167,9 @@ export default function HomePage() {
               <BoardMember key={member.name} member={member} />
             ))}
           </AnimatedGrid>
-          <div className="border-t border-gray-200 pt-8 mt-8">
+          <div className="border-t divider pt-8 mt-8">
             <FadeIn>
-              <p className="text-[10px] font-semibold text-[#6e6e73] uppercase tracking-[0.15em] mb-6">Beisitzende</p>
+              <p className="text-[10px] font-semibold text-ui-muted uppercase tracking-[0.15em] mb-6">Beisitzende</p>
             </FadeIn>
             {/* Mobile: horizontaler Scroll */}
             <div className="md:hidden flex gap-6 overflow-x-auto pb-4 snap-x">
@@ -193,9 +196,9 @@ export default function HomePage() {
       <VereinsinfoSection />
 
       {/* Sponsoren */}
-      <section className="py-12 px-4 bg-[#f5f5f7] border-t border-gray-200/60">
+      <section className="py-12 px-4 page-surface-muted border-t divider">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[11px] font-semibold text-[#6e6e73] uppercase tracking-[0.15em] text-center mb-8">
+          <p className="text-[11px] font-semibold text-ui-muted uppercase tracking-[0.15em] text-center mb-8">
             Unsere Sponsoren
           </p>
           <SponsorGrid sponsors={sponsors} />

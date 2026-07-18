@@ -1,4 +1,7 @@
 import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography'
+
+const token = (name: string) => `rgb(var(--${name}) / <alpha-value>)`
 
 const config: Config = {
   content: [
@@ -10,14 +13,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        ui: {
+          canvas: token('ui-canvas'),
+          surface: token('ui-surface'),
+          raised: token('ui-raised'),
+          text: token('ui-text'),
+          muted: token('ui-muted'),
+          line: token('ui-line'),
+          accent: token('ui-accent'),
+          'accent-strong': token('ui-accent-strong'),
+          inverse: token('ui-inverse'),
+        },
         sus: {
-          navy:  '#0a0e1a',
-          club:  '#0f1f6e',
-          royal: '#1a35c8',
-          ice:   '#e8ecff',
-          ink:   '#12172e',
-          light: '#f0f2ff',
-          muted: '#2a3670',
+          navy: token('ui-navy'),
+          club: token('ui-club'),
+          royal: token('ui-accent'),
+          ice: token('ui-accent-soft'),
+          ink: token('ui-text'),
+          light: token('ui-inverse'),
+          muted: token('ui-muted'),
         },
         dept: {
           fussball:     '#1a35c8',
@@ -27,18 +41,18 @@ const config: Config = {
           allgemein:    '#2a3670',
         },
         apple: {
-          text:      '#1d1d1f',
-          secondary: '#6e6e73',
-          surface:   '#f5f5f7',
-          dark:      '#1d1d1f',
+          text:      token('ui-text'),
+          secondary: token('ui-muted'),
+          surface:   token('ui-surface'),
+          dark:      token('ui-navy'),
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [typography],
 }
 
 export default config

@@ -9,7 +9,7 @@ export default function TennisPage() {
   return (
     <>
       <HeroSection title="Tennis" subtitle="SuS Oestereiden" bgImage="/images/hero/Tennis-2.jpg" />
-      <section className="py-24 px-4 bg-white">
+      <section className="py-24 px-4 page-surface">
         <div className="max-w-7xl mx-auto">
           <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Team</p>
           <h2 className="text-[clamp(24px,3vw,40px)] font-bold text-sus-ink mb-10">Abteilungsvorstand</h2>

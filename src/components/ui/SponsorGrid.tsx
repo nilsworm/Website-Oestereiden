@@ -14,7 +14,7 @@ export default function SponsorGrid({ sponsors }: SponsorGridProps) {
         {track.map((sponsor, i) => (
           <div
             key={i}
-            className="flex items-center justify-center bg-white rounded-xl px-6 py-3 h-20 min-w-[140px] flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-200"
+            className="flex items-center justify-center bg-ui-raised rounded-xl px-6 py-3 h-20 min-w-[140px] flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-200"
           >
             {sponsor.logo ? (
               <Image

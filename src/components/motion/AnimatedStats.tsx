@@ -16,10 +16,10 @@ export default function AnimatedStats() {
       {stats.map((stat, i) => (
         <FadeIn key={stat.label} delay={i * 0.08}>
           <div className="text-center">
-            <div className="text-[clamp(36px,5vw,64px)] font-black text-[#1a35c8] leading-none mb-2">
+            <div className="text-[clamp(36px,5vw,64px)] font-bold text-ui-accent leading-none mb-2">
               <CountUp target={stat.value} />
             </div>
-            <div className="text-sm text-[#6e6e73] font-medium">{stat.label}</div>
+            <div className="text-sm text-ui-muted font-medium">{stat.label}</div>
           </div>
         </FadeIn>
       ))}

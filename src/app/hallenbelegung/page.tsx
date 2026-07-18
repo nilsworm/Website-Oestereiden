@@ -13,7 +13,7 @@ export default function HallenbelegungPage() {
         subtitle="Wochenbelegungsplan der Vereinshalle"
         icon="🏟️"
       />
-      <section className="py-24 px-4 bg-white">
+      <section className="py-24 px-4 page-surface">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-3 mb-8">
             {[
@@ -24,8 +24,8 @@ export default function HallenbelegungPage() {
             ].map(item => (
               <span
                 key={item.label}
-                className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white shadow-sm border-l-4"
-                style={{ borderColor: item.color, color: item.color }}
+                className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-ui-raised"
+                style={{ color: item.color }}
               >
                 {item.label}
               </span>

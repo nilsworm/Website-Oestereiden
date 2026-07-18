@@ -28,7 +28,7 @@ export default function DepartmentCard({ department }: DepartmentCardProps) {
 
   return (
     <Link href={`/${department.id}`} className="group block h-full">
-      <div className="bg-white rounded-2xl overflow-hidden h-full shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-200">
+      <div className="surface-raised rounded-2xl overflow-hidden h-full hover:-translate-y-1 transition-transform duration-200">
         {department.heroImage ? (
           <div className="relative h-40 w-full overflow-hidden">
             <Image
@@ -40,18 +40,18 @@ export default function DepartmentCard({ department }: DepartmentCardProps) {
             />
           </div>
         ) : (
-          <div className="h-40 flex items-center justify-center bg-gray-50">
+          <div className="h-40 flex items-center justify-center bg-ui-surface">
             <Icon size={48} strokeWidth={1.25} className={DEPT_COLOR[department.id]} />
           </div>
         )}
         <div className="p-5">
           <div className="flex items-center justify-between mb-1">
-            <h3 className="font-bold text-base text-[#1d1d1f] group-hover:text-[#1a35c8] transition-colors">
+            <h3 className="font-bold text-base text-ui-text group-hover:text-ui-accent transition-colors">
               {department.label}
             </h3>
-            <span className="text-[#6e6e73] text-lg leading-none group-hover:translate-x-0.5 transition-transform">›</span>
+            <span className="text-ui-muted text-lg leading-none group-hover:translate-x-0.5 transition-transform">›</span>
           </div>
-          <p className="text-[#6e6e73] text-sm leading-relaxed">{department.description}</p>
+          <p className="text-ui-muted text-sm leading-relaxed">{department.description}</p>
         </div>
       </div>
     </Link>
