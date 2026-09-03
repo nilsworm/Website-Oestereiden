@@ -98,9 +98,18 @@
   .section-dark .text-secondary { color: rgba(255, 255, 255, 0.62); }
   .section-dark .eyebrow { color: #7ba3ff; }
   .section-dark .divider { border-color: rgba(255, 255, 255, 0.14); }
+  /* .button-secondary holt seine Farbe über @apply text-ui-text, trägt also
+     kein .text-ui-text-Token im Markup — die Regel oben greift dort nicht. */
+  .section-dark .button-secondary {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .section-dark .button-secondary:hover { background: rgba(255, 255, 255, 0.1); }
 
   /* Schiebt die Sektion mit dicker Rundung über die vorige. Farbneutral —
-     funktioniert hell-über-dunkel genauso wie dunkel-über-hell. */
+     funktioniert hell-über-dunkel genauso wie dunkel-über-hell.
+     Vorsicht: overflow-hidden auf dieser Sektion (z. B. für Rundungs-Clipping)
+     schaltet position: sticky in den .stack-item-Kindern lautlos ab. */
   .clip-lg {
     position: relative;
     border-radius: 32px 32px 0 0;
