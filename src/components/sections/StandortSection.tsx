@@ -15,7 +15,7 @@ export default function StandortSection() {
             <div className="rounded-2xl overflow-hidden h-[360px] md:h-full min-h-[300px]">
               <iframe
                 title="Vereinshalle SuS Oestereiden"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=8.414%2C51.490%2C8.460%2C51.510&layer=mapnik&marker=51.4985%2C8.4370"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=8.4166%2C51.5640%2C8.4286%2C51.5700&layer=mapnik&marker=51.56697%2C8.42258"
                 className="w-full h-full border-0"
                 loading="lazy"
               />

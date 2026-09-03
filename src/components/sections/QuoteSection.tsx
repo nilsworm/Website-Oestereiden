@@ -24,7 +24,7 @@ export default function QuoteSection() {
             <blockquote>
               <p className="text-[clamp(18px,4vw,24px)] font-light text-[#f0f2ff] leading-relaxed mb-6">
                 „Seit über 100 Jahren sind wir mehr als ein Sportverein —
-                wir sind ein Stück Heimat für über 860 Menschen in Rüthen."
+                wir sind ein Stück Heimat"
               </p>
               <footer className="border-t border-white/20 pt-5">
                 <p className="font-semibold text-[#f0f2ff] text-sm">Ulrich Mehn</p>
@@ -54,7 +54,7 @@ export default function QuoteSection() {
               </p>
               <p className="text-[clamp(18px,2.2vw,28px)] font-light text-[#f0f2ff] leading-relaxed mb-8">
                 „Seit über 100 Jahren sind wir mehr als ein Sportverein —
-                wir sind ein Stück Heimat für über 860 Menschen in Rüthen."
+                wir sind ein Stück Heimat"
               </p>
               <footer className="border-t border-white/20 pt-6">
                 <p className="font-semibold text-[#f0f2ff]">Ulrich Mehn</p>
