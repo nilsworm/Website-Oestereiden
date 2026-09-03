@@ -24,12 +24,12 @@ export default function RevealText({
   const prefersReduced = useReducedMotion()
   const Component = as as React.ElementType
 
-  if (prefersReduced) {
-    return <Component className={className}>{children}</Component>
-  }
-
   const words = children.split(' ')
 
+  // Keine Early-Return-Verzweigung: useReducedMotion() liefert serverseitig
+  // `null`, clientseitig sofort den echten Wert. Unterschiedliche Bäume auf
+  // Server und Client würden bei Reduced Motion die Hydration brechen.
+  // Reduced Motion wird stattdessen über `initial` gesteuert, wie in FadeIn.tsx.
   return (
     <Component ref={ref} className={className} aria-label={children}>
       {words.map((word, i) => (
@@ -38,7 +38,7 @@ export default function RevealText({
           <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom">
             <motion.span
               className="inline-block"
-              initial={{ y: '100%' }}
+              initial={prefersReduced ? false : { y: '100%' }}
               animate={isInView ? { y: 0 } : {}}
               transition={{ duration: 0.6, delay: delay + i * 0.06, ease }}
             >
