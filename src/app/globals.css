@@ -127,6 +127,12 @@
     .stack-item { position: sticky; top: 88px; }
   }
 
+  /* Querformat-Handys sind breiter als 768px, aber zu flach für den Stapel:
+     eine geklebte Karte braucht bis zu 456px Höhe (136px top + 320px Karte). */
+  @media (max-height: 600px) {
+    .stack-item { position: static; }
+  }
+
   .button-primary {
     @apply inline-flex items-center justify-center rounded-full bg-ui-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ui-accent-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-accent;
   }

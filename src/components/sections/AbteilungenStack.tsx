@@ -21,6 +21,7 @@ export default function AbteilungenStack() {
             >
               <Link
                 href={`/${dept.id}`}
+                aria-label={dept.label}
                 className="group grid grid-cols-1 md:grid-cols-2 surface-raised rounded-[28px] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.10)]"
               >
                 {dept.heroImage ? (
@@ -43,7 +44,7 @@ export default function AbteilungenStack() {
                   <p className="text-ui-muted leading-relaxed">{dept.description}</p>
                   <span className="mt-6 text-ui-accent font-semibold text-sm inline-flex items-center gap-1.5">
                     Zur Abteilung
-                    <span className="transition-transform group-hover:translate-x-1">›</span>
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">›</span>
                   </span>
                 </div>
               </Link>
