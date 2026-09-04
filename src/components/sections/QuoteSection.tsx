@@ -5,7 +5,7 @@ import FadeIn from '@/components/motion/FadeIn'
 
 export default function QuoteSection() {
   return (
-    <section className="py-20 md:py-28 px-4 section-dark flex items-center">
+    <section className="py-20 md:py-28 px-4 bg-[#0a0e1a] flex items-center">
       <div className="max-w-7xl mx-auto w-full">
 
         {/* Mobile: kleines rundes Foto zentriert + Zitat darunter */}
@@ -28,7 +28,7 @@ export default function QuoteSection() {
               </p>
               <footer className="border-t border-white/20 pt-5">
                 <p className="font-semibold text-[#f0f2ff] text-sm">Ulrich Mehn</p>
-                <p className="text-[#7ba3ff] text-xs mt-0.5">Vereinsvorsitzender, SuS Oestereiden e.V.</p>
+                <p className="text-[#1a35c8] text-xs mt-0.5">Vereinsvorsitzender, SuS Oestereiden e.V.</p>
               </footer>
             </blockquote>
           </FadeIn>
@@ -49,7 +49,7 @@ export default function QuoteSection() {
           </FadeIn>
           <FadeIn delay={0.2}>
             <blockquote>
-              <p className="text-[#7ba3ff] text-xs font-semibold uppercase tracking-[0.15em] mb-6">
+              <p className="text-[#1a35c8] text-xs font-semibold uppercase tracking-[0.15em] mb-6">
                 Vereinsvorsitzender
               </p>
               <p className="text-[clamp(18px,2.2vw,28px)] font-light text-[#f0f2ff] leading-relaxed mb-8">
@@ -58,7 +58,7 @@ export default function QuoteSection() {
               </p>
               <footer className="border-t border-white/20 pt-6">
                 <p className="font-semibold text-[#f0f2ff]">Ulrich Mehn</p>
-                <p className="text-[#7ba3ff] text-sm mt-0.5">
+                <p className="text-[#1a35c8]/70 text-sm mt-0.5">
                   Vereinsvorsitzender, SuS Oestereiden e.V.
                 </p>
               </footer>

@@ -18,7 +18,6 @@
     --ui-inverse: 249 250 252;
     --ui-navy: 20 22 28;
     --ui-club: 27 37 60;
-    --ui-block: 20 28 48;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -35,7 +34,6 @@
       --ui-inverse: 247 248 251;
       --ui-navy: 10 11 14;
       --ui-club: 18 24 37;
-      --ui-block: 34 50 88;
     }
   }
 
@@ -84,54 +82,6 @@
   .divider { @apply border-ui-line; }
   .eyebrow { @apply text-ui-accent text-xs font-semibold tracking-[0.12em] uppercase; }
   .section-title { @apply text-[clamp(28px,4vw,48px)] font-bold text-ui-text; }
-
-  .section-dark {
-    background: rgb(var(--ui-block));
-    color: #ffffff;
-  }
-  .section-dark h1,
-  .section-dark h2,
-  .section-dark h3,
-  .section-dark .text-ui-text,
-  .section-dark .text-primary { color: #ffffff; }
-  .section-dark .text-ui-muted,
-  .section-dark .text-secondary { color: rgba(255, 255, 255, 0.62); }
-  .section-dark .eyebrow { color: #7ba3ff; }
-  .section-dark .divider { border-color: rgba(255, 255, 255, 0.14); }
-  /* .button-secondary holt seine Farbe über @apply text-ui-text, trägt also
-     kein .text-ui-text-Token im Markup — die Regel oben greift dort nicht. */
-  .section-dark .button-secondary {
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-  .section-dark .button-secondary:hover { background: rgba(255, 255, 255, 0.1); }
-
-  /* Schiebt die Sektion mit dicker Rundung über die vorige. Farbneutral —
-     funktioniert hell-über-dunkel genauso wie dunkel-über-hell.
-     Vorsicht: overflow-hidden auf dieser Sektion (z. B. für Rundungs-Clipping)
-     schaltet position: sticky in den .stack-item-Kindern lautlos ab. */
-  .clip-lg {
-    position: relative;
-    border-radius: 32px 32px 0 0;
-    margin-top: -32px;
-  }
-
-  .section-pad { padding-block: 100px; }
-
-  /* Auf Mobil bewusst nicht sticky: der Stack würde zu viel Höhe fressen. */
-  .stack-item { position: static; }
-
-  @media (min-width: 768px) {
-    .clip-lg { border-radius: 80px 80px 0 0; margin-top: -80px; }
-    .section-pad { padding-block: 200px; }
-    .stack-item { position: sticky; top: 88px; }
-  }
-
-  /* Querformat-Handys sind breiter als 768px, aber zu flach für den Stapel:
-     eine geklebte Karte braucht bis zu 456px Höhe (136px top + 320px Karte). */
-  @media (max-height: 600px) {
-    .stack-item { position: static; }
-  }
 
   .button-primary {
     @apply inline-flex items-center justify-center rounded-full bg-ui-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ui-accent-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-accent;
