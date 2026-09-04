@@ -9,7 +9,7 @@ export default function ImpressumPage() {
       <h1 className="text-4xl font-black text-sus-ink mb-10">Impressum</h1>
 
       <div className="prose max-w-none prose-headings:font-bold prose-a:text-sus-royal dark:prose-invert">
-        <h2>Angaben gemäß § 5 TMG</h2>
+        <h2>Angaben gemäß § 5 DDG</h2>
         <p>
           Spiel- und Sportverein Oestereiden e.V. 1922<br />
           Im Kirchfeld 1<br />
@@ -28,13 +28,18 @@ export default function ImpressumPage() {
         <h2>Vereinsregister</h2>
         <p>
           Registergericht: Amtsgericht Warstein<br />
-          Registernummer: 0069
+          Registernummer: VR 0069
         </p>
-        <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+        <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
         <p>
           Robin Heidel<br />
-          Nettelstädt 8<br />
+          Im Kirchfeld 1<br />
           59602 Rüthen
+        </p>
+        <h2>Verbraucherstreitbeilegung</h2>
+        <p>
+          Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
+          Verbraucherschlichtungsstelle teilzunehmen.
         </p>
       </div>
     </div>

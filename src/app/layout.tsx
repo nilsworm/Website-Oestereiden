@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import CookieBanner from '@/components/layout/CookieBanner'
 import BottomTabBar from '@/components/layout/BottomTabBar'
 import './globals.css'
 
@@ -24,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <BottomTabBar />
-        <CookieBanner />
       </body>
     </html>
   )

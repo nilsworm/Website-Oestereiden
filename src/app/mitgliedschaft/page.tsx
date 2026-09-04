@@ -66,12 +66,20 @@ export default function MitgliedschaftPage() {
               info@sus-oestereiden.de
             </a>
           </div>
-          <a
-            href="/downloads/aufnahmeantrag.pdf"
-            className="button-primary rounded-xl px-6 py-3"
-          >
-            Aufnahmeantrag herunterladen (PDF)
-          </a>
+          {/* ponytail: Download-Button entfernt — public/downloads/aufnahmeantrag.pdf
+              existiert nicht, der Link lieferte 404. Zurückholen, sobald das PDF liegt. */}
+          <p className="text-sus-light/50 text-sm leading-relaxed">
+            <strong className="text-sus-light/70 font-semibold">Hinweis zum Datenschutz:</strong>{' '}
+            Die im Aufnahmeantrag angegebenen Daten verarbeiten wir ausschließlich zur Begründung
+            und Verwaltung Ihrer Mitgliedschaft sowie zum Einzug der Mitgliedsbeiträge.
+            Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Nach Beendigung der Mitgliedschaft
+            löschen wir Ihre Daten, sobald keine gesetzlichen Aufbewahrungsfristen mehr
+            entgegenstehen. Weitere Informationen finden Sie in unserer{' '}
+            <a href="/datenschutz" className="text-sus-royal hover:underline font-semibold">
+              Datenschutzerklärung
+            </a>
+            .
+          </p>
         </div>
       </section>
     </>

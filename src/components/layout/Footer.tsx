@@ -83,14 +83,6 @@ export default function Footer() {
               <li>
                 <Link href="/datenschutz" className="hover:text-white transition-colors">Datenschutzerklärung</Link>
               </li>
-              <li>
-                <button
-                  onClick={() => window.dispatchEvent(new Event('open-cookie-banner'))}
-                  className="hover:text-white transition-colors text-left"
-                >
-                  Cookie-Einstellungen
-                </button>
-              </li>
             </ul>
           </div>
 

@@ -1,0 +1,17 @@
+node_modules
+.next
+.git
+.gitignore
+.env*
+.playwright-mcp
+.worktrees
+.swc
+.superpowers
+.agents
+.codex
+.impeccable
+.claude
+__tests__
+__mocks__
+docs
+*.tsbuildinfo

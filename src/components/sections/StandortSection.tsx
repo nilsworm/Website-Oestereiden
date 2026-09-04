@@ -1,8 +1,14 @@
 'use client'
 
+import { useState } from 'react'
 import FadeIn from '@/components/motion/FadeIn'
 
 export default function StandortSection() {
+  // ponytail: Zwei-Klick-Lösung ohne Speicherung. Erst der Klick baut die
+  // Verbindung zu OpenStreetMap auf — vorher verlässt keine IP die Seite.
+  // Bewusst nichts persistiert: kein localStorage heißt kein § 25 TDDDG.
+  const [mapEnabled, setMapEnabled] = useState(false)
+
   return (
     <section className="py-20 md:py-28 px-4 page-surface-muted">
       <div className="max-w-7xl mx-auto w-full">
@@ -13,12 +19,35 @@ export default function StandortSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           <FadeIn className="md:col-span-2">
             <div className="rounded-2xl overflow-hidden h-[360px] md:h-full min-h-[300px]">
-              <iframe
-                title="Vereinshalle SuS Oestereiden"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=8.4166%2C51.5640%2C8.4286%2C51.5700&layer=mapnik&marker=51.56697%2C8.42258"
-                className="w-full h-full border-0"
-                loading="lazy"
-              />
+              {mapEnabled ? (
+                <iframe
+                  title="Vereinshalle SuS Oestereiden"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=8.4166%2C51.5640%2C8.4286%2C51.5700&layer=mapnik&marker=51.56697%2C8.42258"
+                  className="w-full h-full border-0"
+                  sandbox="allow-scripts"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <div className="w-full h-full bg-ui-surface border divider flex flex-col items-center justify-center gap-4 p-8 text-center">
+                  <p className="text-sm text-ui-muted max-w-sm leading-relaxed">
+                    Die Karte wird von OpenStreetMap geladen. Dabei wird Ihre IP-Adresse an
+                    die OpenStreetMap Foundation übertragen. Wir laden sie erst, wenn Sie
+                    zustimmen.
+                  </p>
+                  <button
+                    onClick={() => setMapEnabled(true)}
+                    className="button-primary rounded-xl px-5 py-2.5 text-sm"
+                  >
+                    Karte laden
+                  </button>
+                  <a
+                    href="/datenschutz"
+                    className="text-xs text-ui-muted underline hover:text-ui-text transition-colors"
+                  >
+                    Mehr dazu in der Datenschutzerklärung
+                  </a>
+                </div>
+              )}
             </div>
           </FadeIn>
           <FadeIn delay={0.2} className="flex flex-col justify-center">
