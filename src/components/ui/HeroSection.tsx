@@ -16,6 +16,7 @@ interface HeroSectionProps {
 }
 
 const ease = [0.25, 0.1, 0.25, 1] as const
+const headingClass = 'text-[clamp(44px,8vw,96px)] font-bold tracking-[-0.035em] leading-[0.98] mb-5'
 
 export default function HeroSection({ title, subtitle, description, bgImage, children, variant = 'light' }: HeroSectionProps) {
   const prefersReducedMotion = useReducedMotion()
@@ -36,14 +37,14 @@ export default function HeroSection({ title, subtitle, description, bgImage, chi
           {isDark ? (
             <RevealText
               as="h1"
-              className="text-[clamp(44px,8vw,96px)] font-bold tracking-[-0.035em] leading-[0.98] mb-5"
+              className={headingClass}
               delay={0.2}
             >
               {title}
             </RevealText>
           ) : (
             <motion.h1
-              className="text-[clamp(44px,8vw,96px)] font-bold tracking-[-0.035em] leading-[0.98] mb-5 text-ui-text"
+              className={`${headingClass} text-ui-text`}
               initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease }}

@@ -28,7 +28,7 @@ export default function AbteilungenStack() {
                   <RevealImage
                     wrapperClassName="relative h-56 md:h-80"
                     src={dept.heroImage}
-                    alt={dept.label}
+                    alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
