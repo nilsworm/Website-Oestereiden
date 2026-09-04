@@ -4,18 +4,18 @@ import Image from 'next/image'
 import HeroSection from '@/components/ui/HeroSection'
 import EventCard from '@/components/ui/EventCard'
 import BoardMember from '@/components/ui/BoardMember'
-import DepartmentCard from '@/components/ui/DepartmentCard'
 import SponsorGrid from '@/components/ui/SponsorGrid'
 import FadeIn from '@/components/motion/FadeIn'
 import AnimatedGrid from '@/components/motion/AnimatedGrid'
 import AnimatedStats from '@/components/motion/AnimatedStats'
+import RevealText from '@/components/motion/RevealText'
+import AbteilungenStack from '@/components/sections/AbteilungenStack'
 import QuoteSection from '@/components/sections/QuoteSection'
 import StandortSection from '@/components/sections/StandortSection'
 import VereinsinfoSection from '@/components/sections/VereinsinfoSection'
 import { mainBoard, advisoryBoard } from '@/data/board'
 import { events } from '@/data/events'
 import { sponsors } from '@/data/sponsors'
-import { departments } from '@/data/departments'
 
 export const metadata: Metadata = {
   title: 'SuS Oestereiden e.V. 1922 — Der Verein für die Region',
@@ -29,6 +29,7 @@ export default function HomePage() {
         subtitle="Der Verein für die Region"
         description="Über 860 Mitglieder, vier Abteilungen, eine Gemeinschaft."
         bgImage="/images/hero/Verein-allgemein-7.jpg"
+        variant="dark"
       >
         <div className="flex flex-wrap gap-3 mt-8">
           <Link
@@ -47,11 +48,11 @@ export default function HomePage() {
       </HeroSection>
 
       {/* Aktuelles */}
-      <section className="py-20 md:py-28 page-surface-muted">
+      <section className="page-surface-muted clip-lg section-pad">
         <div className="max-w-7xl mx-auto w-full px-4">
           <FadeIn>
             <p className="eyebrow mb-3">Aktuell</p>
-            <h2 className="section-title mb-10">Termine & Neuigkeiten</h2>
+            <RevealText as="h2" className="section-title mb-10">Termine &amp; Neuigkeiten</RevealText>
           </FadeIn>
         </div>
         {/* Mobile: horizontaler Scroll */}
@@ -73,14 +74,14 @@ export default function HomePage() {
       </section>
 
       {/* Über den Verein + Stats */}
-      <section className="py-20 md:py-28 px-4 page-surface">
+      <section className="px-4 page-surface section-pad">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <FadeIn>
               <p className="eyebrow mb-3">Der Verein</p>
-              <h2 className="section-title mb-6">
-                Seit über 100 Jahren<br />für die Region
-              </h2>
+              <RevealText as="h2" className="section-title mb-6">
+                Seit über 100 Jahren für die Region
+              </RevealText>
               <p className="text-secondary leading-relaxed mb-4 text-lg">
                 Der Spiel- und Sportverein Oestereiden e.V. wurde 1922 gegründet und ist heute mit
                 über 860 Mitgliedern der größte Verein im Stadtgebiet Rüthen.
@@ -105,7 +106,7 @@ export default function HomePage() {
         ]
         const track = [...photos, ...photos]
         return (
-          <div className="overflow-hidden bg-[#0a0e1a]">
+          <div className="overflow-hidden section-dark clip-lg">
             <div className="flex animate-ticker w-max" style={{ animationDuration: '48s' }}>
               {track.map((photo, i) => (
                 <div key={i} className="relative h-64 w-96 flex-shrink-0 overflow-hidden">
@@ -131,27 +132,15 @@ export default function HomePage() {
       {/* Vorsitzender-Zitat */}
       <QuoteSection />
 
-      {/* Abteilungen */}
-      <section id="abteilungen" className="py-20 md:py-28 px-4 page-surface-muted">
-        <div className="max-w-7xl mx-auto w-full">
-          <FadeIn>
-            <p className="eyebrow mb-3">Sport</p>
-            <h2 className="section-title mb-10">Unsere Abteilungen</h2>
-          </FadeIn>
-          <AnimatedGrid className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {departments.map(dept => (
-              <DepartmentCard key={dept.id} department={dept} />
-            ))}
-          </AnimatedGrid>
-        </div>
-      </section>
+      {/* Abteilungen — Sticky-Stack */}
+      <AbteilungenStack />
 
       {/* Vorstand */}
-      <section className="py-16 px-4 page-surface">
+      <section className="px-4 page-surface section-pad">
         <div className="max-w-5xl mx-auto w-full">
           <FadeIn>
             <p className="eyebrow mb-2">Team</p>
-            <h2 className="text-[clamp(22px,3vw,36px)] font-bold text-ui-text mb-10">Vereinsvorstand</h2>
+            <RevealText as="h2" className="text-[clamp(22px,3vw,36px)] font-bold text-ui-text mb-10">Vereinsvorstand</RevealText>
           </FadeIn>
           {/* Mobile: horizontaler Scroll */}
           <div className="md:hidden flex gap-6 overflow-x-auto pb-4 snap-x">
