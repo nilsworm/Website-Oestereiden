@@ -4,69 +4,82 @@ import HeroSection from '@/components/ui/HeroSection'
 export const metadata: Metadata = { title: 'Mitgliedschaft' }
 
 const distribution = [
-  { abteilung: 'Breitensport', anteil: 35 },
-  { abteilung: 'Fußball', anteil: 33 },
-  { abteilung: 'Tennis', anteil: 20 },
-  { abteilung: 'Volleyball', anteil: 12 },
+  { abteilung: 'Breitensport', anteil: 35, color: '#6b4faa' },
+  { abteilung: 'Fußball',      anteil: 33, color: '#1a35c8' },
+  { abteilung: 'Tennis',       anteil: 20, color: '#c47d0e' },
+  { abteilung: 'Volleyball',   anteil: 12, color: '#0d7a6e' },
 ]
 
 export default function MitgliedschaftPage() {
   return (
     <>
       <HeroSection
-        title="Mitgliedschaft"
-        subtitle="Werden Sie Teil unseres Vereins"
+        title="Werde Teil von 860+"
+        subtitle="Mitglied bei SuS Oestereiden"
+        description="Der größte Sportverein im Stadtgebiet Rüthen — seit 1922."
+       
       />
-      <section className="py-16 px-4">
+
+      <section className="py-24 px-4 page-surface">
         <div className="max-w-3xl mx-auto">
-          <div className="prose prose-zinc max-w-none">
-            <h2>Über uns</h2>
-            <p>
-              Der SuS Oestereiden e.V. ist mit über 860 Mitgliedern der größte Verein im
-              Stadtgebiet Rüthen. Seit 1922 fördern wir Sport und Gemeinschaft in der Region.
-            </p>
+          <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Der Verein</p>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-bold text-sus-ink mb-6">Über uns</h2>
+          <p className="text-sus-ink/60 leading-relaxed mb-12 text-lg">
+            Der SuS Oestereiden e.V. ist mit über 860 Mitgliedern der größte Verein im
+            Stadtgebiet Rüthen. Seit 1922 fördern wir Sport und Gemeinschaft in der Region.
+          </p>
 
-            <h2>Mitgliederverteilung</h2>
-            <div className="not-prose space-y-3 mb-8">
-              {distribution.map(d => (
-                <div key={d.abteilung}>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="font-medium">{d.abteilung}</span>
-                    <span className="text-gray-500">{d.anteil} %</span>
-                  </div>
-                  <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-sus-green rounded-full"
-                      style={{ width: `${d.anteil}%` }}
-                    />
-                  </div>
+          <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Verteilung</p>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-bold text-sus-ink mb-8">Mitglieder</h2>
+          <div className="space-y-4 mb-16">
+            {distribution.map(d => (
+              <div key={d.abteilung}>
+                <div className="flex justify-between text-sm mb-1.5">
+                  <span className="font-semibold text-sus-ink">{d.abteilung}</span>
+                  <span className="text-sus-ink/40 font-medium">{d.anteil} %</span>
                 </div>
-              ))}
-            </div>
-
-            <h2>Aufnahme</h2>
-            <p>
-              Zur Aufnahme füllen Sie bitte den Aufnahmeantrag aus und senden ihn an:
-            </p>
-            <address className="not-italic bg-sus-green-pale rounded-lg p-4 text-sm not-prose">
-              <strong>SuS Oestereiden e.V.</strong><br />
-              z. Hd. Michael Witthaut<br />
-              Im Kirchfeld 1<br />
-              59602 Rüthen<br /><br />
-              <a href="mailto:info@sus-oestereiden.de" className="text-sus-green underline">
-                info@sus-oestereiden.de
-              </a>
-            </address>
-
-            <div className="not-prose mt-6">
-              <a
-                href="/downloads/aufnahmeantrag.pdf"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-sus-green text-white font-medium rounded-lg hover:bg-sus-green-light transition-colors"
-              >
-                Aufnahmeantrag herunterladen (PDF)
-              </a>
-            </div>
+                <div className="h-2 bg-sus-ice rounded-full overflow-hidden">
+                  <div
+                    className="h-full rounded-full transition-all duration-700"
+                    style={{ width: `${d.anteil}%`, backgroundColor: d.color }}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-4 bg-sus-club">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Aufnahme</p>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-bold text-sus-light mb-6">Jetzt Mitglied werden</h2>
+          <p className="text-sus-light/60 leading-relaxed mb-8">
+            Zur Aufnahme füllen Sie bitte den Aufnahmeantrag aus und senden ihn an:
+          </p>
+          <div className="bg-sus-navy/50 rounded-2xl p-6 mb-8 border border-sus-muted text-sus-light/70 text-sm leading-loose">
+            <strong className="text-sus-light">SuS Oestereiden e.V.</strong><br />
+            z. Hd. Michael Witthaut<br />
+            Im Kirchfeld 1<br />
+            59602 Rüthen<br />
+            <a href="mailto:info@sus-oestereiden.de" className="text-sus-royal hover:underline font-semibold">
+              info@sus-oestereiden.de
+            </a>
+          </div>
+          {/* ponytail: Download-Button entfernt — public/downloads/aufnahmeantrag.pdf
+              existiert nicht, der Link lieferte 404. Zurückholen, sobald das PDF liegt. */}
+          <p className="text-sus-light/50 text-sm leading-relaxed">
+            <strong className="text-sus-light/70 font-semibold">Hinweis zum Datenschutz:</strong>{' '}
+            Die im Aufnahmeantrag angegebenen Daten verarbeiten wir ausschließlich zur Begründung
+            und Verwaltung Ihrer Mitgliedschaft sowie zum Einzug der Mitgliedsbeiträge.
+            Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Nach Beendigung der Mitgliedschaft
+            löschen wir Ihre Daten, sobald keine gesetzlichen Aufbewahrungsfristen mehr
+            entgegenstehen. Weitere Informationen finden Sie in unserer{' '}
+            <a href="/datenschutz" className="text-sus-royal hover:underline font-semibold">
+              Datenschutzerklärung
+            </a>
+            .
+          </p>
         </div>
       </section>
     </>

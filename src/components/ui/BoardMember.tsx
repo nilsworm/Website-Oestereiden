@@ -8,23 +8,25 @@ interface BoardMemberProps {
 export default function BoardMember({ member }: BoardMemberProps) {
   return (
     <div className="flex flex-col items-center text-center">
-      <div className="w-24 h-24 rounded-full overflow-hidden bg-sus-green-pale mb-3 flex items-center justify-center">
+      <div className="relative w-16 h-16 rounded-full overflow-hidden bg-ui-surface mb-2.5 flex-shrink-0 ring-2 ring-ui-line">
         {member.image ? (
           <Image
             src={member.image}
             alt={member.name}
-            width={96}
-            height={96}
-            className="object-cover w-full h-full"
+            fill
+            sizes="64px"
+            className="object-cover object-top"
           />
         ) : (
-          <span className="text-3xl text-sus-green font-bold">
-            {member.name.charAt(0)}
-          </span>
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-xl font-semibold text-ui-muted">
+              {member.name.charAt(0)}
+            </span>
+          </div>
         )}
       </div>
-      <p className="font-semibold text-zinc-800 text-sm">{member.name}</p>
-      <p className="text-gray-500 text-xs mt-0.5">{member.role}</p>
+      <p className="font-semibold text-ui-text text-xs leading-snug">{member.name}</p>
+      <p className="text-ui-muted text-[10px] mt-0.5 leading-snug">{member.role}</p>
     </div>
   )
 }

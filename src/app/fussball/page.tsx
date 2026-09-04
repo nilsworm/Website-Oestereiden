@@ -8,27 +8,29 @@ export const metadata: Metadata = { title: 'Fußball' }
 export default function FussballPage() {
   return (
     <>
-      <HeroSection title="Fußball" subtitle="SuS Oestereiden" />
+      <HeroSection title="Fußball" subtitle="SuS Oestereiden" bgImage="/images/hero/Fussball-30.jpg" />
 
-      <section className="py-16 px-4">
+      <section className="py-24 px-4 page-surface">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-sus-green-pale rounded-lg p-6 mb-10">
-            <h2 className="font-semibold text-sus-green mb-2">Spielgemeinschaft Haarstrang</h2>
-            <p className="text-gray-700 text-sm">
+          <div className="bg-ui-surface rounded-2xl p-6 mb-14">
+            <p className="eyebrow mb-1">Spielgemeinschaft</p>
+            <h2 className="font-bold text-ui-text mb-2">SG Haarstrang</h2>
+            <p className="text-ui-muted text-sm leading-relaxed">
               Im Seniorenbereich spielen wir gemeinsam mit Partnerklubs in der SG Haarstrang.
               Mehr Infos unter{' '}
               <a
                 href="https://www.sg-haarstrang.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sus-green underline hover:no-underline"
+                className="text-ui-accent underline hover:no-underline font-semibold"
               >
                 www.sg-haarstrang.de
               </a>
             </p>
           </div>
 
-          <h2 className="text-2xl font-bold text-zinc-800 mb-8">Abteilungsvorstand</h2>
+          <p className="eyebrow mb-3">Team</p>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-bold text-ui-text mb-10">Abteilungsvorstand</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
             {fussballBoard.map(member => (
               <BoardMember key={member.name} member={member} />

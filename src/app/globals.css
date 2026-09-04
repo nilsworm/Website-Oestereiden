@@ -3,19 +3,116 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: light dark;
+    --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    --ui-canvas: 247 248 250;
+    --ui-surface: 239 241 245;
+    --ui-raised: 255 255 255;
+    --ui-text: 28 29 32;
+    --ui-muted: 94 97 105;
+    --ui-line: 210 213 218;
+    --ui-accent: 20 85 198;
+    --ui-accent-strong: 13 66 166;
+    --ui-accent-soft: 227 237 255;
+    --ui-inverse: 249 250 252;
+    --ui-navy: 20 22 28;
+    --ui-club: 27 37 60;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ui-canvas: 20 21 24;
+      --ui-surface: 30 31 35;
+      --ui-raised: 39 40 45;
+      --ui-text: 245 245 247;
+      --ui-muted: 176 178 186;
+      --ui-line: 65 67 74;
+      --ui-accent: 34 104 205;
+      --ui-accent-strong: 48 122 230;
+      --ui-accent-soft: 34 53 82;
+      --ui-inverse: 247 248 251;
+      --ui-navy: 10 11 14;
+      --ui-club: 18 24 37;
+    }
+  }
+
+  * {
+    border-color: rgb(var(--ui-line));
+  }
+
+  html {
+    background: rgb(var(--ui-canvas));
+  }
+
   body {
-    @apply text-zinc-800 bg-white;
+    @apply text-ui-text bg-ui-canvas antialiased;
+    font-feature-settings: 'kern', 'liga', 'calt';
+    transition: background-color 180ms ease, color 180ms ease;
   }
 
-  h1 {
-    @apply text-3xl font-bold tracking-tight;
+  h1 { @apply font-bold tracking-tight; }
+  h2 { @apply font-bold tracking-tight; }
+  h3 { @apply font-bold; }
+
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+
+  ::selection {
+    background: rgb(var(--ui-accent) / 0.24);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@layer utilities {
+  .page-surface { @apply bg-ui-canvas; }
+  .page-surface-muted { @apply bg-ui-surface; }
+  .surface-raised { @apply bg-ui-raised; }
+  .text-primary { @apply text-ui-text; }
+  .text-secondary { @apply text-ui-muted; }
+  .divider { @apply border-ui-line; }
+  .eyebrow { @apply text-ui-accent text-xs font-semibold tracking-[0.12em] uppercase; }
+  .section-title { @apply text-[clamp(28px,4vw,48px)] font-bold text-ui-text; }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-ui-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ui-accent-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-accent;
   }
 
-  h2 {
-    @apply text-2xl font-bold tracking-tight;
+  .button-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-ui-line px-5 py-2.5 text-sm font-semibold text-ui-text transition-colors hover:bg-ui-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-accent;
   }
 
-  h3 {
-    @apply text-xl font-semibold;
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-ticker {
+    animation: ticker 32s linear infinite;
+  }
+
+  .animate-ticker:hover {
+    animation-play-state: paused;
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

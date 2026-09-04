@@ -20,22 +20,24 @@ const kursangebot = [
 export default function BreitensportPage() {
   return (
     <>
-      <HeroSection title="Breitensport" subtitle="SuS Oestereiden" />
-      <section className="py-16 px-4">
+      <HeroSection title="Breitensport" subtitle="SuS Oestereiden" bgImage="/images/hero/Kindertanzen-6.jpg" />
+      <section className="py-24 px-4 page-surface">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-zinc-800 mb-8">Abteilungsvorstand</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 mb-16">
+          <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Team</p>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-bold text-sus-ink mb-10">Abteilungsvorstand</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 mb-20">
             {breitensportBoard.map(member => (
               <BoardMember key={member.name} member={member} />
             ))}
           </div>
 
-          <h2 className="text-2xl font-bold text-zinc-800 mb-6">Kursangebot</h2>
+          <p className="text-xs font-semibold text-sus-royal uppercase tracking-[0.15em] mb-3">Angebot</p>
+          <h2 className="text-[clamp(24px,3vw,40px)] font-bold text-sus-ink mb-8">Kursangebot</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {kursangebot.map(kurs => (
-              <div key={kurs.gruppe} className="bg-sus-green-pale rounded-lg p-4">
-                <div className="font-semibold text-zinc-800 text-sm">{kurs.gruppe}</div>
-                <div className="text-gray-500 text-xs mt-1">Leitung: {kurs.leitung}</div>
+              <div key={kurs.gruppe} className="bg-sus-ice rounded-xl p-4 border-l-4 border-[#6b4faa]">
+                <div className="font-semibold text-sus-ink text-sm">{kurs.gruppe}</div>
+                <div className="text-sus-ink/40 text-xs mt-1">Leitung: {kurs.leitung}</div>
               </div>
             ))}
           </div>
