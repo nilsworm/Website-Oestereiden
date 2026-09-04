@@ -5,7 +5,7 @@ import FadeIn from '@/components/motion/FadeIn'
 
 export default function QuoteSection() {
   return (
-    <section className="py-20 md:py-28 px-4 bg-[#0a0e1a] flex items-center">
+    <section className="py-20 md:py-28 px-4 section-dark flex items-center">
       <div className="max-w-7xl mx-auto w-full">
 
         {/* Mobile: kleines rundes Foto zentriert + Zitat darunter */}

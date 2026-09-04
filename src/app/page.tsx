@@ -50,10 +50,8 @@ export default function HomePage() {
       {/* Aktuelles */}
       <section className="page-surface-muted clip-lg section-pad">
         <div className="max-w-7xl mx-auto w-full px-4">
-          <FadeIn>
-            <p className="eyebrow mb-3">Aktuell</p>
-            <RevealText as="h2" className="section-title mb-10">Termine &amp; Neuigkeiten</RevealText>
-          </FadeIn>
+          <p className="eyebrow mb-3">Aktuell</p>
+          <RevealText as="h2" className="section-title mb-10">Termine &amp; Neuigkeiten</RevealText>
         </div>
         {/* Mobile: horizontaler Scroll */}
         <div className="md:hidden flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory">
@@ -77,19 +75,21 @@ export default function HomePage() {
       <section className="px-4 page-surface section-pad">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <FadeIn>
+            <div>
               <p className="eyebrow mb-3">Der Verein</p>
               <RevealText as="h2" className="section-title mb-6">
                 Seit über 100 Jahren für die Region
               </RevealText>
-              <p className="text-secondary leading-relaxed mb-4 text-lg">
-                Der Spiel- und Sportverein Oestereiden e.V. wurde 1922 gegründet und ist heute mit
-                über 860 Mitgliedern der größte Verein im Stadtgebiet Rüthen.
-              </p>
-              <p className="text-secondary leading-relaxed">
-                Mit vier aktiven Abteilungen bieten wir Sport und Gemeinschaft für jedes Alter.
-              </p>
-            </FadeIn>
+              <FadeIn>
+                <p className="text-secondary leading-relaxed mb-4 text-lg">
+                  Der Spiel- und Sportverein Oestereiden e.V. wurde 1922 gegründet und ist heute mit
+                  über 860 Mitgliedern der größte Verein im Stadtgebiet Rüthen.
+                </p>
+                <p className="text-secondary leading-relaxed">
+                  Mit vier aktiven Abteilungen bieten wir Sport und Gemeinschaft für jedes Alter.
+                </p>
+              </FadeIn>
+            </div>
             <AnimatedStats />
           </div>
         </div>
@@ -138,10 +138,8 @@ export default function HomePage() {
       {/* Vorstand */}
       <section className="px-4 page-surface section-pad">
         <div className="max-w-5xl mx-auto w-full">
-          <FadeIn>
-            <p className="eyebrow mb-2">Team</p>
-            <RevealText as="h2" className="text-[clamp(22px,3vw,36px)] font-bold text-ui-text mb-10">Vereinsvorstand</RevealText>
-          </FadeIn>
+          <p className="eyebrow mb-2">Team</p>
+          <RevealText as="h2" className="text-[clamp(22px,3vw,36px)] font-bold text-ui-text mb-10">Vereinsvorstand</RevealText>
           {/* Mobile: horizontaler Scroll */}
           <div className="md:hidden flex gap-6 overflow-x-auto pb-4 snap-x">
             {mainBoard.map(member => (
