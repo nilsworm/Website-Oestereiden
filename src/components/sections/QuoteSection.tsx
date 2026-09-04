@@ -58,7 +58,7 @@ export default function QuoteSection() {
               </p>
               <footer className="border-t border-white/20 pt-6">
                 <p className="font-semibold text-[#f0f2ff]">Ulrich Mehn</p>
-                <p className="text-[#7ba3ff]/70 text-sm mt-0.5">
+                <p className="text-[#7ba3ff] text-sm mt-0.5">
                   Vereinsvorsitzender, SuS Oestereiden e.V.
                 </p>
               </footer>

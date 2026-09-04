@@ -10,8 +10,8 @@ describe('AbteilungenStack', () => {
 
   it('verlinkt jede Abteilung auf ihre eigene Seite', () => {
     render(<AbteilungenStack />)
-    expect(screen.getByRole('link', { name: /Fußball/ })).toHaveAttribute('href', '/fussball')
-    expect(screen.getByRole('link', { name: /Tennis/ })).toHaveAttribute('href', '/tennis')
+    expect(screen.getByRole('link', { name: 'Fußball' })).toHaveAttribute('href', '/fussball')
+    expect(screen.getByRole('link', { name: 'Tennis' })).toHaveAttribute('href', '/tennis')
   })
 
   it('trägt die Sprungmarke #abteilungen für den Hero-Button', () => {
