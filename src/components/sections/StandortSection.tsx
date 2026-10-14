@@ -2,12 +2,14 @@
 
 import { useState } from 'react'
 import FadeIn from '@/components/motion/FadeIn'
+import { useConsent } from '@/lib/consent'
 
 export default function StandortSection() {
-  // ponytail: Zwei-Klick-Lösung ohne Speicherung. Erst der Klick baut die
-  // Verbindung zu OpenStreetMap auf — vorher verlässt keine IP die Seite.
-  // Bewusst nichts persistiert: kein localStorage heißt kein § 25 TDDDG.
-  const [mapEnabled, setMapEnabled] = useState(false)
+  // Zwei-Klick-Lösung: Die Karte lädt nur nach Klick oder gespeicherter Einwilligung
+  // (Banner, Kategorie "Externe Medien"). Vorher verlässt keine IP die Seite.
+  const { choice } = useConsent()
+  const [clicked, setClicked] = useState(false)
+  const mapEnabled = clicked || choice?.media === true
 
   return (
     <section className="py-20 md:py-28 px-4 page-surface-muted">
@@ -35,7 +37,7 @@ export default function StandortSection() {
                     zustimmen.
                   </p>
                   <button
-                    onClick={() => setMapEnabled(true)}
+                    onClick={() => setClicked(true)}
                     className="button-primary rounded-xl px-5 py-2.5 text-sm"
                   >
                     Karte laden

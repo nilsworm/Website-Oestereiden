@@ -4,9 +4,12 @@ import type { NextConfig } from 'next'
 // (Next Flight-Payload) und Inline-Styles von framer-motion; der Nonce-Weg verlangt
 // dynamisches Rendering über proxy.ts und gäbe das Prerendering dieser Seite auf.
 // Upgrade-Pfad: sobald die Seite ohnehin dynamisch rendert, auf Nonces umstellen.
+const isProd = process.env.NODE_ENV === 'production'
+
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  // ponytail: React braucht im Dev-Modus eval() für Callstacks; in Produktion nie.
+  `script-src 'self' 'unsafe-inline'${isProd ? '' : " 'unsafe-eval'"}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self'",
@@ -17,7 +20,8 @@ const csp = [
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
-  'upgrade-insecure-requests',
+  // ponytail: nur in Produktion, sonst lädt Safari lokal per https und das CSS bricht.
+  ...(isProd ? ['upgrade-insecure-requests'] : []),
 ].join('; ')
 
 const nextConfig: NextConfig = {
@@ -38,7 +42,9 @@ const nextConfig: NextConfig = {
           { key: 'Content-Security-Policy', value: csp },
           // preload bewusst weggelassen — erst nach bestätigtem HTTPS-only
           // auf allen Subdomains ergänzen.
-          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
+          ...(isProd
+            ? [{ key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' }]
+            : []),
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },

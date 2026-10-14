@@ -94,8 +94,13 @@ export default function DatenschutzPage() {
 
         <h2>7. Cookies und Speicherung auf Ihrem Endgerät</h2>
         <p>
-          Diese Website setzt keine Cookies und speichert keine Informationen auf Ihrem Endgerät.
-          Wir verwenden keine Analyse-, Tracking- oder Marketingdienste und erstellen keine
+          Diese Website setzt keine Cookies. Wir speichern lediglich Ihre Auswahl im
+          Einwilligungsbanner (Eintrag „sus-consent-v1“ im lokalen Speicher Ihres Browsers). Das
+          ist technisch erforderlich, um Ihre Entscheidung zu respektieren, und nach § 25 Abs. 2
+          Nr. 2 TDDDG ohne Einwilligung zulässig (Rechtsgrundlage Art. 6 Abs. 1 lit. f DSGVO).
+          Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ im Seitenfuß ändern;
+          löschen Sie den Eintrag, indem Sie die Website-Daten Ihres Browsers entfernen. Wir
+          verwenden keine Analyse-, Tracking- oder Marketingdienste und erstellen keine
           Nutzungsprofile. Alle Schriftarten und Bilder werden von unserem eigenen Server
           ausgeliefert; es werden keine externen Schrift- oder Content-Dienste eingebunden.
         </p>
@@ -118,8 +123,9 @@ export default function DatenschutzPage() {
           Rechtsgrundlage für das Laden der Karte ist Ihre durch den Klick erteilte Einwilligung
           nach Art. 6 Abs. 1 lit. a DSGVO. Ihre Einwilligung ist freiwillig; Sie können die Karte
           schlicht nicht aktivieren und stattdessen die daneben angegebene Anschrift verwenden.
-          Wir speichern Ihre Entscheidung nicht — laden Sie die Seite neu, ist die Karte wieder
-          deaktiviert.
+          Sie können die Karte einmalig per Klick laden oder im Einwilligungsbanner „Externe
+          Medien“ freigeben; diese Entscheidung wird lokal in Ihrem Browser gespeichert und
+          lässt sich jederzeit über „Cookie-Einstellungen“ im Seitenfuß widerrufen.
         </p>
         <p>
           Die OpenStreetMap Foundation hat ihren Sitz im Vereinigten Königreich, also außerhalb

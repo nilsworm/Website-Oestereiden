@@ -12,7 +12,7 @@ const stats = [
 
 export default function AnimatedStats() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+    <div className="grid grid-cols-2 gap-x-6 gap-y-10">
       {stats.map((stat, i) => (
         <FadeIn key={stat.label} delay={i * 0.08}>
           <div className="text-center">
