@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { reopenConsent } from '@/lib/consent'
 
 export default function Footer() {
   return (
@@ -82,6 +83,11 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/datenschutz" className="hover:text-white transition-colors">Datenschutzerklärung</Link>
+              </li>
+              <li>
+                <button onClick={reopenConsent} className="hover:text-white transition-colors">
+                  Cookie-Einstellungen
+                </button>
               </li>
             </ul>
           </div>
